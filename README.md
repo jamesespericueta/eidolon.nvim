@@ -1,0 +1,2 @@
+# eidolon.nvim
+Neovim colorscheme
