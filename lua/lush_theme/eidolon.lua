@@ -258,6 +258,116 @@ local theme = lush(function(injected_functions)
 		sym("@tag.builtin") { fg = clr.blue1 },                                            -- XML-style tag names (e.g. HTML5 tags)
 		sym("@tag.attribute") { fg = clr.hyacinth2 },                                      -- XML-style tag attributes
 		sym("@tag.delimiter") { fg = clr.ice2 },                                           -- XML-style tag delimiters
+
+
+		-- coc highlight groups (:h coc-highlights)
+
+		CocBold { Normal, gui = "bold" },              -- For bold text
+		CocItalic { Normal, gui = "italic" },          -- For italic text
+		CocUnderline { Normal, gui = "underline" },    -- For underlined text
+		CocStrikThrough { Normal, gui = "strikethrough" }, -- For struckthrough text
+		CocMarkdownCode { Normal },                    -- For inline code in markdown content
+		CocMarkdownHeader { Normal },                  -- For markdown header in floating windows
+		CocMarkdownLink { fg = clr.purple2 },          -- For markdown link text in floating windows
+
+		CocFadeOut { fg = clr.grey1 },                 -- For faded out text, such as for highlighting unnecessary code
+		CocErrorSign { DiagnosticError },              -- for error signs
+		CocWarningSign { DiagnosticWarn },             -- for warning signs
+		CocInfoSign { DiagnosticInfo },                -- for information signs
+		CocHintSign { fg = clr.grey2 },                -- for hint signs
+		CocErrorVirtualText { DiagnosticVirtualTextError }, -- for error virtual text
+		CocWarningVirtualText { DiagnosticVirtualTextWarn }, -- for warning virtual text
+		CocInfoVirtualText { DiagnosticVirtualTextInfo }, -- for information virtual text
+		CocHintVirtualText { DiagnosticVirtualTextHint }, -- for hint virtual text
+		CocErrorHighlight { DiagnosticUnderlineError }, -- for error code range
+		CocWarningHighlight { DiagnosticUnderlineWarn }, -- for warning code range
+		CocInfoHighlight { DiagnosticUnderlineInfo },  -- for information code range
+		CocHintHighlight { DiagnosticUnderlineHint },  -- for hint code range
+		CocDeprecatedHighlight { Comment },            -- for deprecated code range, links t
+		CocStrikeThrough { Comment },                  -- by default
+		CocUnusedHighlight { fg = clr.grey1 },         -- for unnecessary code range, links to |CocFadeOut| by default
+		CocErrorLine { Comment },                      -- line highlight of sign which contains error
+		CocWarningLine { Comment },                    -- line highlight of sign which contains warning
+		CocInfoLine { Comment },                       -- line highlight of sign which information
+		CocHintLine { Comment },                       -- line highlight of sign which contains hint
+
+		CocHighlightText { bg = clr.bg2, fg = clr.grey1 }, -- default symbol highlight
+		CocHighlightRead { CocHighlightText },         -- for `Read` kind of document symbol
+		CocHighlightWrite { CocHighlightText },        -- for `Write` kind of document symbol
+
+		CocFloating { Normal },                        -- default highlight group of floating windows/popups. Default links to |NormalFloat| on neovim and |Pmenu| on vim
+		CocFloatThumb { Normal },                      -- thumb highlight of scrollbar
+		CocFloatSbar { Normal },                       -- Scrollbar highlight of floating window/popups
+		CocFloatDividingLine { Comment },              -- for dividing lines, links to |NonText| by default
+		CocFloatActive { Comment },                    -- for activated text, links to |CocSearch| by default
+		CocErrorFloat { DiagnosticError },             -- for error text in floating windows/popups
+		CocHintFloat { DiagnosticHint },               -- for hint text in floating windows/popups
+
+		CocInlayHint { Comment },                      -- for highlight inlay hint virtual text block, default uses foreground from |CocHintSign| and background from |SignColumn
+		CocInlayHintParameter { Comment },             -- for parameter kind of inlay hint
+		CocInlayHintType { Comment },                  -- for type kind of inlay hint
+
+		CocNotificationProgress { Comment },           -- for progress line in progress notification
+		CocNotificationButton { Normal, gui = "underline" }, -- for action buttons in notification window
+		CocNotificationError { DiagnosticError },      -- for highlight border of error notification
+		CocNotificationWarning { DiagnosticWarn },     -- for highlight border of warning notification
+		CocNotificationInfo { DiagnosticInfo },        -- for highlight border of info notification
+
+		CocSearch { Comment },                         -- for matched characters
+		CocListLine { bg = clr.bg2, fg = clr.grey1 },  -- for current cursor line
+		CocListSearch { Comment },                     -- for matched characters
+		CocListMode { fg = clr.ice1 },                 -- for mode text in the statusline
+		CocListPath { Comment },                       -- for cwd text in the statusline
+		CocSelectedText { Comment },                   -- for sign text of selected lines (multiple selection only)
+		CocSelectedLine { Comment },                   -- for line highlight of selected lines (multiple selection only)
+
+		CocTreeTitle { fg = clr.blue2 },               -- for title in tree view
+		CocTreeDescription { Comment },                -- for description beside label
+		CocTreeOpenClose { Normal },                   -- for open and close icon in tree view
+		CocTreeSelected { CocListLine },               -- for highlight lines contains selected node
+
+		CocPumSearch { Comment },                      -- for matched input characters, linked to |CocSearch| by default
+		CocPumDetail { Comment },                      -- for highlight label details that follows label (including possible detail and description)
+		CocPumMenu { Normal },                         -- for menu of complete item
+		CocPumShortcut { Comment },                    -- for shortcut text of source
+		CocPumDeprecated { Comment },                  -- for deprecated label
+		CocPumVirtualText { Comment },                 -- for virtual text which enabled by |coc-config-suggest-virtualText
+
+		CocSymbolDefault { fg = clr.hyacinth1 },       -- linked to |hl-MoreMsg| by default
+		CocSymbolText { CocSymbolDefault },
+		CocSymbolUnit { CocSymbolDefault },
+		CocSymbolValue { CocSymbolDefault },
+		CocSymbolKeyword { fg = clr.purple1 },
+		CocSymbolSnippet { CocSymbolDefault },
+		CocSymbolColor { fg = clr.yellow2 },
+		CocSymbolReference { fg = clr.yellow2 },
+		CocSymbolFolder { CocSymbolDefault },
+		CocSymbolFile { fg = clr.purple1 },
+		CocSymbolModule { fg = clr.ice1 },
+		CocSymbolNamespace { fg = clr.ice1 },
+		CocSymbolPackage { fg = clr.purple1 },
+		CocSymbolClass { fg = clr.green1 },
+		CocSymbolMethod { fg = clr.blue2 },
+		CocSymbolProperty { fg = clr.hyacinth2 },
+		CocSymbolField { fg = clr.blue2 },
+		CocSymbolConstructor { fg = clr.green1 },
+		CocSymbolEnum { fg = clr.ice2 },
+		CocSymbolInterface { fg = clr.ice2 },
+		CocSymbolFunction { fg = clr.blue1 },
+		CocSymbolVariable { fg = clr.red2 },
+		CocSymbolConstant { fg = clr.orange1 },
+		CocSymbolString { fg = clr.green2 },
+		CocSymbolNumber { fg = clr.yellow2 },
+		CocSymbolBoolean { fg = clr.orange2 },
+		CocSymbolArray { CocSymbolDefault },
+		CocSymbolObject { CocSymbolDefault },
+		CocSymbolKey { fg = clr.green2 },
+		CocSymbolNull { fg = clr.ice2 },
+		CocSymbolEnumMember { fg = clr.hyacinth2 },
+		CocSymbolStruct { Normal },
+		CocSymbolEvent { fg = clr.orange1 },
+		CocSymbolOperator { Normal },
+		CocSymbolTypeParameter { fg = clr.ice2 },
 	}
 end)
 
