@@ -1,5 +1,5 @@
 local lush = require('lush')
-local colors = require("lua.lush_theme.colors")
+local colors = require("lush_theme.colors")
 
 local bg1 = colors.bg1
 local bg2 = colors.bg2
@@ -60,8 +60,8 @@ local theme = lush(function(injected_functions)
 		CurSearch { bg = green2, fg = bg1 },             -- Highlighting a search pattern under the cursor (see 'hlsearch')
 		lCursor { bg = fg, fg = bg1 },                   -- Character under the cursor when |language-mapping| is used (see 'guicursor')
 		CursorIM { bg = fg, fg = bg1 },                  -- Like Cursor, but used when in IME mode |CursorIM|
-		CursorColumn { bg = bg3 },                       -- Screen-column at the cursor, when 'cursorcolumn' is set.
-		CursorLine { bg = bg3 },                         -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+		CursorColumn { bg = bg2 },                       -- Screen-column at the cursor, when 'cursorcolumn' is set.
+		CursorLine { bg = bg2 },                         -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
 		Directory { bg = bg1, fg = blue2 },              -- Directory names (and other special names in listings)
 		DiffAdd { Normal, gui = "underline", sp = green1 }, -- Diff mode: Added line |diff.txt|
 		DiffChange { Normal, gui = "underline", sp = blue1 }, -- Diff mode: Changed line |diff.txt|
@@ -111,9 +111,9 @@ local theme = lush(function(injected_functions)
 		SpellRare { Normal, gui = "undercurl", sp = purple1 }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
 		StatusLine { Normal },                           -- Status line of current window
 		StatusLineNC { Comment },                        -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
-		TabLine { bg = bg2, fg = fg },                   -- Tab pages line, not active tab page label
+		TabLine { bg = bg1, fg = fg },                   -- Tab pages line, not active tab page label
 		TabLineFill { Normal },                          -- Tab pages line, where there are no labels
-		TabLineSel { bg = grey3, fg = bg1 },             -- Tab pages line, active tab page label
+		TabLineSel { bg = bg3, fg = fg },                -- Tab pages line, active tab page label
 		Title { bg = bg1, fg = blue2 },                  -- Titles for output from ":set all", ":autocmd" etc.
 		Visual { Normal },                               -- Visual mode selection
 		VisualNOS { Normal },                            -- Visual mode selection when vim is "Not Owning the Selection".
@@ -178,7 +178,6 @@ local theme = lush(function(injected_functions)
 		-- LSP client's documentation.
 
 		-- See :h lsp-highlight, some groups may not be listed, submit a PR fix to lush-template!
-		--
 		LspReferenceText { Normal },                  -- Used for highlighting "text" references
 		LspReferenceRead { Normal },                  -- Used for highlighting "read" references
 		LspReferenceWrite { Normal },                 -- Used for highlighting "write" references
@@ -188,17 +187,16 @@ local theme = lush(function(injected_functions)
 		LspSignatureActiveParameter { bg = bg1, fg = bg1 }, -- Used to highlight the active parameter in the signature help. See |vim.lsp.handlers.signature_help()|.
 
 		-- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
-		--
 		DiagnosticError { Error },                                                       -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		DiagnosticWarn { fg = ice1 },                                                    -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		DiagnosticInfo { fg = blue1 },                                                   -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		DiagnosticHint { fg = hyacinth1 },                                               -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		DiagnosticOk { fg = green1 },                                                    -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-		DiagnosticVirtualTextError { bg = red2.darken(75).saturate(-40), fg = red2 },    -- Used for "Error" diagnostic virtual text.
-		DiagnosticVirtualTextWarn { bg = ice2.darken(75).saturate(-40), fg = ice2 },     -- Used for "Warn" diagnostic virtual text.
-		DiagnosticVirtualTextInfo { bg = blue2.darken(70).saturate(-40), fg = blue2 },   -- Used for "Info" diagnostic virtual text.
-		DiagnosticVirtualTextHint { bg = hyacinth2.darken(70).saturate(-60), fg = hyacinth2 }, -- Used for "Hint" diagnostic virtual text.
-		DiagnosticVirtualTextOk { bg = green1.darken(65).saturate(-40), fg = green2 },   -- Used for "Ok" diagnostic virtual text.
+		DiagnosticVirtualTextError { bg = red1.darken(90).saturate(-10), fg = red2 },    -- Used for "Error" diagnostic virtual text.
+		DiagnosticVirtualTextWarn { bg = ice1.darken(90).saturate(-10), fg = ice2 },     -- Used for "Warn" diagnostic virtual text.
+		DiagnosticVirtualTextInfo { bg = blue1.darken(90).saturate(-20), fg = blue2 },   -- Used for "Info" diagnostic virtual text.
+		DiagnosticVirtualTextHint { bg = hyacinth1.darken(90).saturate(-60), fg = hyacinth2 }, -- Used for "Hint" diagnostic virtual text.
+		DiagnosticVirtualTextOk { bg = green1.darken(90).saturate(-30), fg = green2 },   -- Used for "Ok" diagnostic virtual text.
 		DiagnosticUnderlineError { Normal, gui = "undercurl", sp = red2 },               -- Used to underline "Error" diagnostics.
 		DiagnosticUnderlineWarn { Normal, gui = "undercurl", sp = ice1 },                -- Used to underline "Warn" diagnostics.
 		DiagnosticUnderlineInfo { Normal, gui = "undercurl", sp = blue1 },               -- Used to underline "Info" diagnostics.
@@ -232,7 +230,7 @@ local theme = lush(function(injected_functions)
 		--
 		-- For more information see https://github.com/rktjmp/lush.nvim/issues/109
 
-		sym("@variable") { Normal },                                               -- Various variable names
+		sym("@variable") { fg = hyacinth2.saturate(-20) },                         -- Various variable names
 		sym("@variable.builtin") { fg = red2 },                                    -- Built-in variable names
 		sym("@variable.parameter") { fg = ice2 },                                  -- Parameters of a function
 		sym("@variable.parameter.builtin") { fg = hyacinth2 },                     -- Special parameters (e.g. _, it)
