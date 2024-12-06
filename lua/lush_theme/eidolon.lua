@@ -44,7 +44,7 @@ local theme = lush(function(injected_functions)
 		ModeMsg { bg = clr.bg1, fg = clr.ice2 },             -- 'showmode' message (e.g., "-- INSERT -- ")
 		MsgArea { Normal },                                  -- Area for messages and cmdline
 		MsgSeparator { Normal },                             -- Separator for scrolled messages, `msgsep` flag of 'display'
-		MoreMsg { bg = clr.bg1, fg = clr.hyacinth1 },        -- |more-prompt|
+		MoreMsg { bg = clr.bg1, fg = clr.lilac1 },           -- |more-prompt|
 		NonText { bg = clr.bg1, fg = clr.grey1 },            -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 		NormalFloat { Normal },                              -- Normal text in floating windows.
 		FloatBorder { Comment },                             -- Border of floating windows.
@@ -58,7 +58,7 @@ local theme = lush(function(injected_functions)
 		PmenuExtraSel { Normal },                            -- Popup menu: Selected item "extra text"
 		PmenuSbar { Normal },                                -- Popup menu: Scrollbar.
 		PmenuThumb { Normal },                               -- Popup menu: Thumb of the scrollbar.
-		Question { bg = clr.bg1, fg = clr.hyacinth1 },       -- |hit-enter| prompt and yes/no questions
+		Question { bg = clr.bg1, fg = clr.lilac1 },          -- |hit-enter| prompt and yes/no questions
 		QuickFixLine { bg = clr.bg3, fg = clr.fg },          -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
 		Search { Normal },                                   -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
 		SpecialKey { bg = clr.bg1, fg = clr.grey1 },         -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
@@ -95,10 +95,10 @@ local theme = lush(function(injected_functions)
 		Function { fg = clr.blue1 },             --   Function name (also: methods for classes)
 
 		Statement { fg = clr.purple1 },          -- (*) Any statement
-		Conditional { fg = clr.hyacinth1 },      --   if, then, else, endif, switch, etc.
+		Conditional { fg = clr.lilac1 },         --   if, then, else, endif, switch, etc.
 		Repeat { Conditional },                  --   for, do, while, etc.
 		Label { Conditional },                   --   case, default, etc.
-		Operator { fg = clr.hyacinth2 },         --   "sizeof", "+", "*", etc.
+		Operator { fg = clr.lilac2 },            --   "sizeof", "+", "*", etc.
 		Keyword { fg = clr.fg },                 --   any other keyword
 		Exception { fg = clr.pink1 },            --   try, catch, throw
 
@@ -139,31 +139,31 @@ local theme = lush(function(injected_functions)
 
 		-- Diagnostic highligh groups (:h diagnostic-highlights)
 
-		DiagnosticError { Error },                                                               -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-		DiagnosticWarn { fg = clr.ice1 },                                                        -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-		DiagnosticInfo { fg = clr.blue1 },                                                       -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-		DiagnosticHint { fg = clr.hyacinth1 },                                                   -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-		DiagnosticOk { fg = clr.green1 },                                                        -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-		DiagnosticVirtualTextError { bg = clr.red1.darken(90).saturate(-10), fg = clr.red2 },    -- Used for "Error" diagnostic virtual text.
-		DiagnosticVirtualTextWarn { bg = clr.ice1.darken(90).saturate(-10), fg = clr.ice2 },     -- Used for "Warn" diagnostic virtual text.
-		DiagnosticVirtualTextInfo { bg = clr.blue1.darken(90).saturate(-20), fg = clr.blue2 },   -- Used for "Info" diagnostic virtual text.
-		DiagnosticVirtualTextHint { bg = clr.hyacinth1.darken(90).saturate(-60), fg = clr.hyacinth2 }, -- Used for "Hint" diagnostic virtual text.
-		DiagnosticVirtualTextOk { bg = clr.green1.darken(90).saturate(-30), fg = clr.green2 },   -- Used for "Ok" diagnostic virtual text.
-		DiagnosticUnderlineError { Normal, gui = "undercurl", sp = clr.red2 },                   -- Used to underline "Error" diagnostics.
-		DiagnosticUnderlineWarn { Normal, gui = "undercurl", sp = clr.ice1 },                    -- Used to underline "Warn" diagnostics.
-		DiagnosticUnderlineInfo { Normal, gui = "undercurl", sp = clr.blue1 },                   -- Used to underline "Info" diagnostics.
-		DiagnosticUnderlineHint { Normal, gui = "undercurl", sp = clr.green1 },                  -- Used to underline "Hint" diagnostics.
-		DiagnosticUnderlineOk { DiagnosticUnderlineHint },                                       -- Used to underline "Ok" diagnostics.
-		DiagnosticFloatingError { DiagnosticError },                                             -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
-		DiagnosticFloatingWarn { DiagnosticWarn },                                               -- Used to color "Warn" diagnostic messages in diagnostics float.
-		DiagnosticFloatingInfo { DiagnosticInfo },                                               -- Used to color "Info" diagnostic messages in diagnostics float.
-		DiagnosticFloatingHint { DiagnosticHint },                                               -- Used to color "Hint" diagnostic messages in diagnostics float.
-		DiagnosticFloatingOk { DiagnosticOk },                                                   -- Used to color "Ok" diagnostic messages in diagnostics float.
-		DiagnosticSignError { DiagnosticError },                                                 -- Used for "Error" signs in sign column.
-		DiagnosticSignWarn { DiagnosticWarn },                                                   -- Used for "Warn" signs in sign column.
-		DiagnosticSignInfo { DiagnosticInfo },                                                   -- Used for "Info" signs in sign column.
-		DiagnosticSignHint { DiagnosticHint },                                                   -- Used for "Hint" signs in sign column.
-		DiagnosticSignOk { DiagnosticOk },                                                       -- Used for "Ok" signs in sign column.
+		DiagnosticError { Error },                                                         -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticWarn { fg = clr.ice1 },                                                  -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticInfo { fg = clr.blue1 },                                                 -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticHint { fg = clr.lilac1 },                                                -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticOk { fg = clr.green1 },                                                  -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+		DiagnosticVirtualTextError { bg = clr.red1.darken(90).saturate(-10), fg = clr.red2 }, -- Used for "Error" diagnostic virtual text.
+		DiagnosticVirtualTextWarn { bg = clr.ice1.darken(90).saturate(-10), fg = clr.ice2 }, -- Used for "Warn" diagnostic virtual text.
+		DiagnosticVirtualTextInfo { bg = clr.blue1.darken(90).saturate(-20), fg = clr.blue2 }, -- Used for "Info" diagnostic virtual text.
+		DiagnosticVirtualTextHint { bg = clr.lilac1.darken(90).saturate(-60), fg = clr.lilac2 }, -- Used for "Hint" diagnostic virtual text.
+		DiagnosticVirtualTextOk { bg = clr.green1.darken(90).saturate(-30), fg = clr.green2 }, -- Used for "Ok" diagnostic virtual text.
+		DiagnosticUnderlineError { Normal, gui = "undercurl", sp = clr.red2 },             -- Used to underline "Error" diagnostics.
+		DiagnosticUnderlineWarn { Normal, gui = "undercurl", sp = clr.ice1 },              -- Used to underline "Warn" diagnostics.
+		DiagnosticUnderlineInfo { Normal, gui = "undercurl", sp = clr.blue1 },             -- Used to underline "Info" diagnostics.
+		DiagnosticUnderlineHint { Normal, gui = "undercurl", sp = clr.green1 },            -- Used to underline "Hint" diagnostics.
+		DiagnosticUnderlineOk { DiagnosticUnderlineHint },                                 -- Used to underline "Ok" diagnostics.
+		DiagnosticFloatingError { DiagnosticError },                                       -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
+		DiagnosticFloatingWarn { DiagnosticWarn },                                         -- Used to color "Warn" diagnostic messages in diagnostics float.
+		DiagnosticFloatingInfo { DiagnosticInfo },                                         -- Used to color "Info" diagnostic messages in diagnostics float.
+		DiagnosticFloatingHint { DiagnosticHint },                                         -- Used to color "Hint" diagnostic messages in diagnostics float.
+		DiagnosticFloatingOk { DiagnosticOk },                                             -- Used to color "Ok" diagnostic messages in diagnostics float.
+		DiagnosticSignError { DiagnosticError },                                           -- Used for "Error" signs in sign column.
+		DiagnosticSignWarn { DiagnosticWarn },                                             -- Used for "Warn" signs in sign column.
+		DiagnosticSignInfo { DiagnosticInfo },                                             -- Used for "Info" signs in sign column.
+		DiagnosticSignHint { DiagnosticHint },                                             -- Used for "Hint" signs in sign column.
+		DiagnosticSignOk { DiagnosticOk },                                                 -- Used for "Ok" signs in sign column.
 
 
 		-- Treesitter highligh groups (:h treesitter-highlight)
@@ -171,14 +171,14 @@ local theme = lush(function(injected_functions)
 		sym("@variable") { fg = clr.fg },                                                  -- Various variable names
 		sym("@variable.builtin") { fg = clr.red2 },                                        -- Built-in variable names
 		sym("@variable.parameter") { fg = clr.ice2 },                                      -- Parameters of a function
-		sym("@variable.parameter.builtin") { fg = clr.hyacinth2 },                         -- Special parameters (e.g. _, it)
+		sym("@variable.parameter.builtin") { fg = clr.lilac2 },                            -- Special parameters (e.g. _, it)
 		sym("@variable.member") { fg = clr.blue2 },                                        -- Object and struct fields
 		sym("@constant") { fg = clr.orange1 },                                             -- Constant identifiers
 		sym("@constant.builtin") { fg = clr.orange1 },                                     -- Built-in constant values
 		sym("@constant.macro") { fg = clr.pink1 },                                         -- Constants defined by the preprocessor
 		sym("@module") { fg = clr.ice2 },                                                  -- Modules or namespace
 		sym("@module.builtin") { fg = clr.blue1 },                                         -- Built-in modules or namespace
-		sym("@label") { fg = clr.hyacinth1 },                                              -- Label
+		sym("@label") { fg = clr.lilac1 },                                                 -- Label
 		sym("@string") { fg = clr.green1 },                                                -- String literals
 		sym("@string.documentation") { fg = clr.green1 },                                  -- String documenting code
 		sym("@string.regex") { fg = clr.yellow1 },                                         -- Regular expressions
@@ -197,28 +197,28 @@ local theme = lush(function(injected_functions)
 		sym("@type.definition") { fg = clr.ice1 },                                         -- Identifiers of type definitions
 		sym("@attribute") { fg = clr.orange2 },                                            -- Attribute annotations
 		sym("@attribute.builtin") { fg = clr.purple1 },                                    -- Built-in annotations
-		sym("@property") { fg = clr.hyacinth2 },                                           -- The 'key' in 'key/value' pairs
+		sym("@property") { fg = clr.lilac2 },                                              -- The 'key' in 'key/value' pairs
 		sym("@function") { fg = clr.blue1 },                                               -- Function definitions
-		sym("@function.builtin") { fg = clr.hyacinth1 },                                   -- Built-in function definitions
-		sym("@function.call") { fg = clr.hyacinth1 },                                      -- Function calls
+		sym("@function.builtin") { fg = clr.lilac1 },                                      -- Built-in function definitions
+		sym("@function.call") { fg = clr.lilac1 },                                         -- Function calls
 		sym("@function.macro") { fg = clr.pink1 },                                         -- Preprocessor macros
 		sym("@function.method") { fg = clr.blue1 },                                        -- Method definitions
-		sym("@function.method.call") { fg = clr.hyacinth1 },                               -- Method calls
+		sym("@function.method.call") { fg = clr.lilac1 },                                  -- Method calls
 		sym("@constructor") { fg = clr.green1 },                                           -- Constructor calls and definitions
 		sym("@operator") { fg = clr.fg },                                                  -- Symbolic operators
 		sym("@keyword") { fg = clr.purple1 },                                              -- Keywords not fitting into specific categories
 		sym("@keyword.coroutine") { fg = clr.purple1 },                                    -- Keywords related to coroutines
 		sym("@keyword.function") { fg = clr.purple1 },                                     -- Keywords that define a function
-		sym("@keyword.operator") { fg = clr.hyacinth2 },                                   -- operators that are English words
+		sym("@keyword.operator") { fg = clr.lilac2 },                                      -- operators that are English words
 		sym("@keyword.import") { fg = clr.pink2 },                                         -- Keywords for including modules
 		sym("@keyword.type") { fg = clr.ice1 },                                            -- Keywords defining composite types
 		sym("@keyword.modifier") { fg = clr.purple1 },                                     -- Keywords defining type modifiers
-		sym("@keyword.repeat") { fg = clr.hyacinth1 },                                     -- Keywords related to loops
+		sym("@keyword.repeat") { fg = clr.lilac1 },                                        -- Keywords related to loops
 		sym("@keyword.return") { fg = clr.pink1 },                                         -- Keywords like 'return' and 'yield'
 		sym("@keyword.debug") { fg = clr.purple2 },                                        -- Keywords related to debugging
 		sym("@keyword.exception") { fg = clr.purple2 },                                    -- Keywords related to exceptions
-		sym("@keyword.conditional") { fg = clr.hyacinth1 },                                -- Keywords related to conditionals
-		sym("@keyword.conditional.ternary") { fg = clr.hyacinth1 },                        -- Ternary operators
+		sym("@keyword.conditional") { fg = clr.lilac1 },                                   -- Keywords related to conditionals
+		sym("@keyword.conditional.ternary") { fg = clr.lilac1 },                           -- Ternary operators
 		sym("@keyword.directive") { fg = clr.purple1 },                                    -- Various preprocessor directives and shebangs
 		sym("@keyword.directive.define") { fg = clr.purple1 },                             -- Preprocessor definition directives
 		sym("@punctuation.delimiter") { fg = clr.fg },                                     -- Delimiters
@@ -244,7 +244,7 @@ local theme = lush(function(injected_functions)
 		sym("@markup.quote") { fg = clr.fg },                                              -- Block quotes
 		sym("@markup.math") { fg = clr.blue2 },                                            -- Math environments
 		sym("@markup.link") { fg = clr.purple2 },                                          -- Text references footnotes, citations
-		sym("@markup.link.label") { fg = clr.hyacinth1 },                                  -- Link, reference descriptions
+		sym("@markup.link.label") { fg = clr.lilac1 },                                     -- Link, reference descriptions
 		sym("@markup.link.url") { fg = clr.orange2, gui = "underline" },                   -- URL-style links
 		sym("@markup.raw") { fg = clr.green2 },                                            -- Literal or verbatim text
 		sym("@markup.raw.block") { fg = clr.pink1 },                                       -- Literal or verbatim text as a stand-alone block
@@ -256,7 +256,7 @@ local theme = lush(function(injected_functions)
 		sym("@diff.delta") { fg = clr.ice1 },                                              -- Changed text (for diff files)
 		sym("@tag") { fg = clr.purple1 },                                                  -- XML-style tag names (e.g. in XML, HTML, etc.)
 		sym("@tag.builtin") { fg = clr.blue1 },                                            -- XML-style tag names (e.g. HTML5 tags)
-		sym("@tag.attribute") { fg = clr.hyacinth2 },                                      -- XML-style tag attributes
+		sym("@tag.attribute") { fg = clr.lilac2 },                                         -- XML-style tag attributes
 		sym("@tag.delimiter") { fg = clr.ice2 },                                           -- XML-style tag delimiters
 
 
@@ -333,7 +333,7 @@ local theme = lush(function(injected_functions)
 		CocPumDeprecated { Comment },                  -- for deprecated label
 		CocPumVirtualText { Comment },                 -- for virtual text which enabled by |coc-config-suggest-virtualText
 
-		CocSymbolDefault { fg = clr.hyacinth1 },       -- linked to |hl-MoreMsg| by default
+		CocSymbolDefault { fg = clr.lilac1 },          -- linked to |hl-MoreMsg| by default
 		CocSymbolText { CocSymbolDefault },
 		CocSymbolUnit { CocSymbolDefault },
 		CocSymbolValue { CocSymbolDefault },
@@ -348,7 +348,7 @@ local theme = lush(function(injected_functions)
 		CocSymbolPackage { fg = clr.purple1 },
 		CocSymbolClass { fg = clr.green1 },
 		CocSymbolMethod { fg = clr.blue2 },
-		CocSymbolProperty { fg = clr.hyacinth2 },
+		CocSymbolProperty { fg = clr.lilac2 },
 		CocSymbolField { fg = clr.blue2 },
 		CocSymbolConstructor { fg = clr.green1 },
 		CocSymbolEnum { fg = clr.ice2 },
@@ -363,7 +363,7 @@ local theme = lush(function(injected_functions)
 		CocSymbolObject { CocSymbolDefault },
 		CocSymbolKey { fg = clr.green2 },
 		CocSymbolNull { fg = clr.ice2 },
-		CocSymbolEnumMember { fg = clr.hyacinth2 },
+		CocSymbolEnumMember { fg = clr.lilac2 },
 		CocSymbolStruct { Normal },
 		CocSymbolEvent { fg = clr.orange1 },
 		CocSymbolOperator { Normal },

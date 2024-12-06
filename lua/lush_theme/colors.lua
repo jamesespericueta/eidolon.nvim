@@ -23,8 +23,8 @@ return {
 	purple1 = hsl(249, 63, 71),
 	purple2 = hsl(247, 66, 75),
 
-	hyacinth1 = hsl(225, 87, 75),
-	hyacinth2 = hsl(225, 90, 78),
+	lilac1 = hsl(225, 87, 75),
+	lilac2 = hsl(225, 90, 78),
 
 	yellow1 = hsl(52, 55, 77),
 	yellow2 = hsl(48, 62, 80),
