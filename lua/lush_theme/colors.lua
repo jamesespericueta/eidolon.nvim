@@ -14,17 +14,17 @@ return {
 	green1 = hsl(163, 51, 64),
 	green2 = hsl(163, 53, 67),
 
-	blue1 = hsl(210, 92, 73),
-	blue2 = hsl(208, 95, 75),
+	blue1 = hsl(210, 88, 75),
+	blue2 = hsl(208, 91, 77),
 
-	ice1 = hsl(198, 87, 76),
-	ice2 = hsl(196, 90, 80),
+	ice1 = hsl(190, 87, 79),
+	ice2 = hsl(189, 85, 82),
 
 	purple1 = hsl(249, 63, 71),
 	purple2 = hsl(247, 66, 75),
 
-	hyacinth1 = hsl(230, 94, 78),
-	hyacinth2 = hsl(228, 100, 81),
+	hyacinth1 = hsl(225, 87, 75),
+	hyacinth2 = hsl(225, 90, 78),
 
 	yellow1 = hsl(52, 55, 77),
 	yellow2 = hsl(48, 62, 80),
