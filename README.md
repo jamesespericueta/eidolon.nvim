@@ -38,5 +38,9 @@ use("Vallen217/eidolon.nvim")
 ## Usage
 
 ```lua
-require("eidolon")
+vim.cmd[[colorscheme eidolon]]
 ```
+
+### TODO:
+
+- Include lualine config
