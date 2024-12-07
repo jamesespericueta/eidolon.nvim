@@ -27,4 +27,13 @@
 
 ![Alt test](https://github.com/Vallen217/eidolon.nvim/blob/main/screenshots/4.png?raw=true)
 
-## Made with [Lush](https://github.com/rktjmp/lush.nvim/tree/main)
+## Usage
+
+Install the theme via package manager, such as [packer.nvim](https://github.com/wbthomason/packer.nvim)
+
+```lua
+use({
+    "Vallen217/eidolon.nvim",
+    config = require("eidolon"),
+})
+```
