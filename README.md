@@ -27,13 +27,16 @@
 
 ![Alt test](https://github.com/Vallen217/eidolon.nvim/blob/main/screenshots/4.png?raw=true)
 
-## Usage
+## Installation
 
 Install the theme via package manager, such as [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
 ```lua
-use({
-    "Vallen217/eidolon.nvim",
-    config = require("eidolon"),
-})
+use("Vallen217/eidolon.nvim")
+```
+
+## Usage
+
+```lua
+require("eidolon")
 ```
