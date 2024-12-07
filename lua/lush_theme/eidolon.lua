@@ -368,6 +368,24 @@ local theme = lush(function(injected_functions)
 		CocSymbolEvent { fg = clr.orange1 },
 		CocSymbolOperator { Normal },
 		CocSymbolTypeParameter { fg = clr.ice2 },
+
+
+		-- nvim-notify highlight groups
+		NotifyERRORBorder { fg = clr.red2 },
+		NotifyWARNBorder { fg = clr.ice2 },
+		NotifyINFOBorder { fg = clr.blue2 },
+		NotifyTRACEBorder { fg = clr.purple2 },
+		NotifyDEBUGBorder { Normal },
+		NotifyERRORTitle { fg = clr.red1 },
+		NotifyWARNTitle { fg = clr.ice1 },
+		NotifyINFOTitle { fg = clr.blue1 },
+		NotifyTRACETitle { fg = clr.purple1 },
+		NotifyDEBUGTitle { Normal },
+		NotifyERRORIcon { NotifyERRORTitle },
+		NotifyWARNIcon { NotifyWARNTitle },
+		NotifyINFOIcon { NotifyINFOTitle },
+		NotifyTRACEIcon { NotifyTRACETitle },
+		NotifyDEBUGIcon { Normal },
 	}
 end)
 
