@@ -1,351 +1,426 @@
 local colors = {
-	-- PATCH_OPEN
-	Normal = { bg = "#131320" },
-	CocFloatSbar = { link = "Normal" },
-	CocFloatThumb = { link = "Normal" },
-	CocFloating = { link = "Normal" },
-	CocMarkdownCode = { link = "Normal" },
-	CocMarkdownHeader = { link = "Normal" },
-	CocPumMenu = { link = "Normal" },
-	CocSymbolOperator = { link = "Normal" },
-	CocSymbolStruct = { link = "Normal" },
-	CocTreeOpenClose = { link = "Normal" },
-	ColorColumn = { link = "Normal" },
-	Ignore = { link = "Normal" },
-	LspReferenceRead = { link = "Normal" },
-	LspReferenceText = { link = "Normal" },
-	LspReferenceWrite = { link = "Normal" },
-	MsgArea = { link = "Normal" },
-	MsgSeparator = { link = "Normal" },
+	bg1 = "#12121f",
+	bg2 = "#232338",
+	bg3 = "#262640",
+
+	fg = "#d4d7ff",
+
+	grey1 = "#63668c",
+	grey2 = "#4f5172",
+	grey3 = "#444564",
+
+	green1 = "#74d2b7",
+	green2 = "#7ed7c0",
+
+	blue1 = "#87bff7",
+	blue2 = "#8fc8fa",
+
+	ice1 = "#9be9f8",
+	ice2 = "#aaecf8",
+
+	purple1 = "#9486e4",
+	purple2 = "#9f95e9",
+
+	lilac1 = "#88a4f7",
+	lilac2 = "#94aef9",
+
+	yellow1 = "#e5dca4",
+	yellow2 = "#ecdfac",
+
+	orange1 = "#e2b88d",
+	orange2 = "#e8bf9c",
+
+	red1 = "#bd4277",
+	red2 = "#bf4a7f",
+
+	pink1 = "#c45a99",
+	pink2 = "#d864aa",
+}
+
+local hl_groups = {
+	Normal = { bg = colors.bg1, fg = colors.fg },                        -- Normal text
+	Comment = { bg = colors.bg1, fg = colors.grey2 },                    -- Any comment
+	ColorColumn = { link = "Normal" },                                   -- Columns set with 'colorcolumn'
+	Conceal = { bg = colors.bg1, fg = colors.grey1 },                    -- Placeholder characters substituted for concealed text (see 'conceallevel')
+	Cursor = { bg = colors.fg, fg = colors.bg1 },                        -- Character under the cursor
+	CurSearch = { bg = colors.green2, fg = colors.bg1 },                 -- Highlighting a search pattern under the cursor (see 'hlsearch')
+	lCursor = { bg = colors.fg, fg = colors.bg1 },                       -- Character under the cursor when |language-mapping| is used (see 'guicursor')
+	CursorIM = { bg = colors.fg, fg = colors.bg1 },                      -- Like Cursor, but used when in IME mode |CursorIM|
+	CursorColumn = { bg = colors.bg2 },                                  -- Screen-column at the cursor, when 'cursorcolumn' is set.
+	CursorLine = { bg = colors.bg2 },                                    -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+	Directory = { bg = colors.bg1, fg = colors.blue2 },                  -- Directory names (and other special names in listings)
+	DiffAdd = { link = "Normal", underline = true, sp = colors.green1 }, -- Diff mode: Added line |diff.txt|
+	DiffChange = { link = "Normal", underline = true, sp = colors.blue1 }, -- Diff mode: Changed line |diff.txt|
+	DiffDelete = { link = "Normal", underline = true, sp = colors.red2 }, -- Diff mode: Deleted line |diff.txt|
+	DiffText = { link = "Normal", underline = true, sp = colors.fg },    -- Diff mode: Changed text within a changed line |diff.txt|
+	EndOfBuffer = { bg = colors.bg1, fg = colors.bg1 },                  -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
+	TermCursor = { bg = colors.fg, fg = colors.bg1 },                    -- Cursor in a focused terminal
+	TermCursorNC = { link = "Normal" },                                  -- Cursor in an unfocused terminal
+	ErrorMsg = { bg = colors.bg1, fg = colors.red1 },                    -- Error messages on the command line
+	VertSplit = { bg = colors.bg1, fg = colors.bg1 },                    -- Column separating vertically split windows
+	Folded = { bg = colors.bg3, fg = colors.grey1 },                     -- Line used for closed folds
+	FoldColumn = { link = "Comment" },                                   -- 'foldcolumn'
+	SignColumn = { link = "Comment" },                                   -- Column where |signs| are displayed
+	IncSearch = { bg = colors.green1, fg = colors.bg1 },                 -- 'incsearch' highlighting; also used for the text replaced with ":s///c"
+	Substitute = { bg = colors.red2, fg = colors.bg1 },                  -- |:substitute| replacement text highlighting
+	LineNr = { link = "Comment" },                                       -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+	LineNrAbove = { link = "Comment" },                                  -- Line number for when the 'relativenumber' option is set, above the cursor line
+	LineNrBelow = { link = "Comment" },                                  -- Line number for when the 'relativenumber' option is set, below the cursor line
+	CursorLineNr = { bg = colors.bg1, fg = colors.ice1 },                -- Like LineNr when 'cursorline' or 'relativenumber' is set for the cursor line.
+	CursorLineFold = { link = "Comment" },                               -- Like FoldColumn when 'cursorline' is set for the cursor line
+	CursorLineSign = { link = "Comment" },                               -- Like SignColumn when 'cursorline' is set for the cursor line
+	MatchParen = { bg = colors.bg1, fg = colors.ice2 },                  -- Character under the cursor or just before it, if it is a paired bracket, and its match. |pi_paren.txt|
+	ModeMsg = { bg = colors.bg1, fg = colors.ice2 },                     -- 'showmode' message (e.g., "-- INSERT -- ")
+	MsgArea = { link = "Normal" },                                       -- Area for messages and cmdline
+	MsgSeparator = { link = "Normal" },                                  -- Separator for scrolled messages, `msgsep` flag of 'display'
+	MoreMsg = { bg = colors.bg1, fg = colors.lilac1 },                   -- |more-prompt|
+	NonText = { bg = colors.bg1, fg = colors.grey1 },                    -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
 	NormalFloat = { link = "Normal" },
-	NormalNC = { link = "Normal" },
-	NotifyDEBUGBorder = { link = "Normal" },
-	NotifyDEBUGIcon = { link = "Normal" },
-	NotifyDEBUGTitle = { link = "Normal" },
-	Pmenu = { link = "Normal" },
-	PmenuExtra = { link = "Normal" },
-	PmenuExtraSel = { link = "Normal" },
-	PmenuKind = { link = "Normal" },
-	PmenuKindSel = { link = "Normal" },
-	PmenuSbar = { link = "Normal" },
-	PmenuSel = { link = "Normal" },
-	PmenuThumb = { link = "Normal" },
-	Search = { link = "Normal" },
-	StatusLine = { link = "Normal" },
-	TabLineFill = { link = "Normal" },
-	TermCursorNC = { link = "Normal" },
-	Visual = { link = "Normal" },
-	VisualNOS = { link = "Normal" },
-	WildMenu = { link = "Normal" },
-	CocBold = { bg = "#131320", bold = true },
-	CocFadeOut = { fg = "#63668C" },
-	CocHighlightText = { bg = "#232338" },
-	CocHighlightRead = { link = "CocHighlightText" },
-	CocHighlightWrite = { link = "CocHighlightText" },
-	CocHintSign = { fg = "#4F5172" },
-	CocItalic = { bg = "#131320", italic = true },
-	CocListLine = { bg = "#232338" },
-	CocTreeSelected = { link = "CocListLine" },
-	CocListMode = { fg = "#9BE9F8" },
-	CocMarkdownLink = { fg = "#9F95E9" },
-	CocNotificationButton = { bg = "#131320", underline = true },
-	CocStrikThrough = { bg = "#131320", strikethrough = true },
-	CocSymbolBoolean = { fg = "#E8BF9C" },
-	CocSymbolClass = { fg = "#74D2B7" },
-	CocSymbolColor = { fg = "#ECDFAC" },
-	CocSymbolConstant = { fg = "#E2B88D" },
-	CocSymbolConstructor = { fg = "#74D2B7" },
-	CocSymbolDefault = { fg = "#88A4F7" },
-	CocSymbolArray = { link = "CocSymbolDefault" },
-	CocSymbolFolder = { link = "CocSymbolDefault" },
-	CocSymbolObject = { link = "CocSymbolDefault" },
-	CocSymbolSnippet = { link = "CocSymbolDefault" },
+	FloatBorder = { link = "Comment" },                                  -- Border of floating windows.
+	FloatTitle = { bg = colors.bg1, fg = colors.blue2 },                 -- Title of floating windows.
+	NormalNC = { link = "Normal" },                                      -- normal text in non-current windows
+	Pmenu = { link = "Normal" },                                         -- Popup menu: Normal item.
+	PmenuSel = { link = "Normal" },                                      -- Popup menu: Selected item.
+	PmenuKind = { link = "Normal" },                                     -- Popup menu: Normal item "kind"
+	PmenuKindSel = { link = "Normal" },                                  -- Popup menu: Selected item "kind"
+	PmenuExtra = { link = "Normal" },                                    -- Popup menu: Normal item "extra text"
+	PmenuExtraSel = { link = "Normal" },                                 -- Popup menu: Selected item "extra text"
+	PmenuSbar = { link = "Normal" },                                     -- Popup menu: Scrollbar.
+	PmenuThumb = { link = "Normal" },                                    -- Popup menu: Thumb of the scrollbar.
+	Question = { bg = colors.bg1, fg = colors.lilac1 },                  -- |hit-enter| prompt and yes/no questions
+	QuickFixLine = { bg = colors.bg3, fg = colors.fg },                  -- Current |quickfix| item in the quickfix window. Combined with |hl-CursorLine| when the cursor is there.
+	Search = { link = "Normal" },                                        -- Last search pattern highlighting (see 'hlsearch'). Also used for similar items that need to stand out.
+	SpecialKey = { bg = colors.bg1, fg = colors.grey1 },                 -- Unprintable characters: text displayed differently from what it really is. But not 'listchars' whitespace. |hl-Whitespace|
+	SpellBad = { link = "Normal", undercurl = true, sp = colors.red2 },  -- Word that is not recognized by the spellchecker. |spell| Combined with the highlighting used otherwise.
+	SpellCap = { link = "Normal", undercurl = true, sp = colors.green1 }, -- Word that should start with a capital. |spell| Combined with the highlighting used otherwise.
+	SpellLocal = { link = "Normal", undercurl = true, sp = colors.blue1 }, -- Word that is recognized by the spellchecker as one that is used in another region. |spell| Combined with the highlighting used otherwise.
+	SpellRare = { link = "Normal", undercurl = true, sp = colors.purple1 }, -- Word that is recognized by the spellchecker as one that is hardly ever used. |spell| Combined with the highlighting used otherwise.
+	StatusLine = { link = "Normal" },                                    -- Status line of current window
+	StatusLineNC = { link = "Comment" },                                 -- Status lines of not-current windows. Note: If this is equal to "StatusLine" Vim will use "^^^" in the status line of the current window.
+	TabLine = { bg = colors.bg1, fg = colors.fg },                       -- Tab pages line, not active tab page label
+	TabLineFill = { link = "Normal" },                                   -- Tab pages line, where there are no labels
+	TabLineSel = { bg = colors.bg3, fg = colors.fg },                    -- Tab pages line, active tab page label
+	Title = { bg = colors.bg1, fg = colors.blue2 },                      -- Titles for output from ":set all", ":autocmd" etc.
+	Visual = { link = "Normal" },                                        -- Visual mode selection
+	VisualNOS = { link = "Normal" },                                     -- Visual mode selection when vim is "Not Owning the Selection".
+	WarningMsg = { bg = colors.bg1, fg = colors.ice1 },                  -- Warning messages
+	Whitespace = { bg = colors.bg1, fg = colors.bg3 },                   -- "nbsp", "space", "tab" and "trail" in 'listchars'
+	Winseparator = { bg = colors.bg1, fg = colors.grey3 },               -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
+	WildMenu = { link = "Normal" },                                      -- Current match in 'wildmenu' completion
+	WinBar = { link = "Comment" },                                       -- Window bar of current window
+	WinBarNC = { link = "Comment" },                                     -- Window bar of not-current windows
+
+
+	-- General syntax group highlights (:h group-name)
+
+	Constant = { fg = colors.orange1 },             -- (*) Any constant
+	Boolean = { link = "Constant" },                --   A boolean constant: TRUE, false
+	String = { fg = colors.green1 },                --   A string constant: "this is a string"
+	Character = { link = "String" },                --   A character constant: 'c', '\n'
+	Number = { fg = colors.yellow2 },               --   A number constant: 234, 0xff
+	Float = { link = "Number" },                    --   A floating point constant: 2.3e10
+
+	Identifier = { fg = colors.green2 },            -- (*) Any variable name
+	Function = { fg = colors.blue1 },               --   Function name (also: methods for classes)
+
+	Statement = { fg = colors.purple1 },            -- (*) Any statement
+	Conditional = { fg = colors.lilac1 },           --   if, then, else, endif, switch, etc.
+	Repeat = { link = "Conditional" },              --   for, do, while, etc.
+	Label = { link = "Conditional" },               --   case, default, etc.
+	Operator = { fg = colors.lilac2 },              --   "sizeof", "+", "*", etc.
+	Keyword = { fg = colors.fg },                   --   any other keyword
+	Exception = { fg = colors.pink1 },              --   try, catch, throw
+
+	Macro = { fg = colors.pink1 },                  --   Same as Define
+	Include = { link = "Macro" },                   --   Preprocessor #include
+	Define = { link = "Macro" },                    --   Preprocessor #define
+	PreCondit = { link = "Macro" },                 --   Preprocessor #if, #else, #endif, etc.
+	PreProc = { link = "Macro" },                   -- (*) Generic Preprocessor
+
+	Type = { fg = colors.ice1 },                    -- (*) int, long, char, etc.
+	StorageClass = { link = "Type" },               --   static, register, volatile, etc.
+	Structure = { link = "Type" },                  --   struct, union, enum, etc.
+	Typedef = { link = "Type" },                    --   A typedef
+
+	Special = { fg = colors.blue1 },                -- (*) Any special symbol
+	SpecialChar = { link = "Special" },             --   Special character in a constant
+	Tag = { link = "Special" },                     --   You can use CTRL-] on this
+	Delimiter = { link = "Special" },               --   Character that needs attention
+	SpecialComment = { link = "Special" },          --   Special things inside a comment (e.g. '\n')
+	Debug = { link = "Special" },                   --   Debugging statements
+
+	Underlined = { underline = true, sp = colors.fg }, -- Text that stands out, HTML links
+	Ignore = { link = "Normal" },                   -- Left blank, hidden |hl-Ignore| (NOTE: May be invisible here in template)
+	Error = { fg = colors.red2 },                   -- Any erroneous construct
+	Todo = { bg = colors.blue1, fg = colors.bg1 },  -- Anything that needs extra attention; mostly the keywords TODO FIXME and XXX
+
+
+	-- lsp highlight groups (:h lsp-highlight)
+
+	LspReferenceText = { link = "Normal" },                          -- Used for highlighting "text" references
+	LspReferenceRead = { link = "Normal" },                          -- Used for highlighting "read" references
+	LspReferenceWrite = { link = "Normal" },                         -- Used for highlighting "write" references
+	LspInlayHint = { bg = "#222239", fg = colors.grey1 },            -- Used for highlighting inlay hints
+	LspCodeLens = { link = "Conceal" },                              -- Used to color the virtual text of the codelens. See |nvim_buf_set_extmark()|.
+	LspCodeLensSeparator = { link = "Comment" },                     -- Used to color the seperator between two or more code lens.
+	LspSignatureActiveParameter = { bg = colors.bg1, fg = colors.bg1 }, -- Used to highlight the active parameter in the signature help. See |vim.lsp.handlers.signature_help()|.
+
+
+	-- Diagnostic highligh groups (:h diagnostic-highlights)
+
+	DiagnosticError = { Error },                                                      -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+	DiagnosticWarn = { fg = colors.ice1 },                                            -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+	DiagnosticInfo = { fg = colors.blue1 },                                           -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+	DiagnosticHint = { fg = colors.lilac1 },                                          -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+	DiagnosticOk = { fg = colors.green1 },                                            -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+	DiagnosticVirtualTextError = { bg = "#12070c", fg = colors.red2 },                -- Used for "Error" diagnostic virtual text.
+	DiagnosticVirtualTextWarn = { bg = "#041f24", fg = colors.ice2 },                 -- Used for "Warn" diagnostic virtual text.
+	DiagnosticVirtualTextInfo = { bg = "#061423", fg = colors.blue2 },                -- Used for "Info" diagnostic virtual text.
+	DiagnosticVirtualTextHint = { bg = "#0d111c", fg = colors.lilac2 },               -- Used for "Hint" diagnostic virtual text.
+	DiagnosticVirtualTextOk = { bg = "#0a1512", fg = colors.green2 },                 -- Used for "Ok" diagnostic virtual text.
+	DiagnosticUnderlineError = { link = "Normal", undercurl = true, sp = colors.red2 }, -- Used to underline "Error" diagnostics.
+	DiagnosticUnderlineWarn = { link = "Normal", undercurl = true, sp = colors.ice1 }, -- Used to underline "Warn" diagnostics.
+	DiagnosticUnderlineInfo = { link = "Normal", undercurl = true, sp = colors.blue1 }, -- Used to underline "Info" diagnostics.
+	DiagnosticUnderlineHint = { link = "Normal", undercurl = true, sp = colors.green1 }, -- Used to underline "Hint" diagnostics.
+	DiagnosticUnderlineOk = { link = "DiagnosticUnderlineHint" },                     -- Used to underline "Ok" diagnostics.
+	DiagnosticFloatingError = { link = "DiagnosticError" },                           -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
+	DiagnosticFloatingWarn = { link = "DiagnosticWarn" },                             -- Used to color "Warn" diagnostic messages in diagnostics float.
+	DiagnosticFloatingInfo = { link = "DiagnosticInfo" },                             -- Used to color "Info" diagnostic messages in diagnostics float.
+	DiagnosticFloatingHint = { link = "DiagnosticHint" },                             -- Used to color "Hint" diagnostic messages in diagnostics float.
+	DiagnosticFloatingOk = { link = "DiagnosticOk" },                                 -- Used to color "Ok" diagnostic messages in diagnostics float.
+	DiagnosticSignError = { link = "DiagnosticError" },                               -- Used for "Error" signs in sign column.
+	DiagnosticSignWarn = { link = "DiagnosticWarn" },                                 -- Used for "Warn" signs in sign column.
+	DiagnosticSignInfo = { link = "DiagnosticInfo" },                                 -- Used for "Info" signs in sign column.
+	DiagnosticSignHint = { link = "DiagnosticHint" },                                 -- Used for "Hint" signs in sign column.
+	DiagnosticSignOk = { link = "DiagnosticOk" },                                     -- Used for "Ok" signs in sign column.
+
+
+	-- Treesitter highligh groups (:h treesitter-highlight)
+
+	["@variable"] = { fg = "#c0cffc" },                                -- Various variable names
+	["@variable.builtin"] = { fg = colors.red2 },                      -- Built-in variable names
+	["@variable.parameter"] = { fg = colors.ice2 },                    -- Parameters of a function
+	["@variable.parameter.builtin"] = { fg = colors.lilac2 },          -- Special parameters (e.g. _, it)
+	["@variable.member"] = { fg = colors.blue2 },                      -- Object and struct fields
+	["@constant"] = { fg = colors.orange1 },                           -- Constant identifiers
+	["@constant.builtin"] = { fg = colors.orange1 },                   -- Built-in constant values
+	["@constant.macro"] = { fg = colors.pink1 },                       -- Constants defined by the preprocessor
+	["@module"] = { fg = colors.ice2 },                                -- Modules or namespace
+	["@module.builtin"] = { fg = colors.blue1 },                       -- Built-in modules or namespace
+	["@label"] = { fg = colors.lilac1 },                               -- Label
+	["@string"] = { fg = colors.green1 },                              -- String literals
+	["@string.documentation"] = { fg = colors.green1 },                -- String documenting code
+	["@string.regex"] = { fg = colors.yellow1 },                       -- Regular expressions
+	["@slushtring.escape"] = { fg = colors.yellow1 },                  -- Escape sequences
+	["@string.special"] = { fg = colors.blue2 },                       -- Special strings
+	["@string.special.symbol"] = { fg = colors.blue2 },                -- Symbols or atoms
+	["@string.special.path"] = { fg = colors.blue2 },                  -- File paths
+	["@string.special.url"] = { fg = colors.orange2 },                 -- URLs/hyperlinks
+	["@character"] = { fg = colors.green1 },                           -- Character litterals
+	["@character.special"] = { fg = colors.blue2 },                    -- Special characters
+	["@boolean"] = { fg = colors.orange1 },                            -- Boolean literals
+	["@number"] = { fg = colors.yellow2 },                             -- Number literals
+	["@number.float"] = { fg = colors.yellow2 },                       -- Float literals
+	["@type"] = { fg = colors.ice1 },                                  -- Type or class definitions
+	["@type.builtin"] = { fg = colors.ice1 },                          -- Built-in types
+	["@type.definition"] = { fg = colors.ice1 },                       -- Identifiers of type definitions
+	["@attribute"] = { fg = colors.orange2 },                          -- Attribute annotations
+	["@attribute.builtin"] = { fg = colors.purple1 },                  -- Built-in annotations
+	["@property"] = { fg = colors.lilac2 },                            -- The 'key' in 'key/value' pairs
+	["@function"] = { fg = colors.blue1 },                             -- Function definitions
+	["@function.builtin"] = { fg = colors.lilac1 },                    -- Built-in function definitions
+	["@function.call"] = { fg = colors.lilac1 },                       -- Function calls
+	["@function.macro"] = { fg = colors.pink1 },                       -- Preprocessor macros
+	["@function.method"] = { fg = colors.blue1 },                      -- Method definitions
+	["@function.method.call"] = { fg = colors.lilac1 },                -- Method calls
+	["@constructor"] = { fg = colors.green1 },                         -- Constructor calls and definitions
+	["@operator"] = { fg = colors.fg },                                -- Symbolic operators
+	["@keyword"] = { fg = colors.purple1 },                            -- Keywords not fitting into specific categories
+	["@keyword.coroutine"] = { fg = colors.purple1 },                  -- Keywords related to coroutines
+	["@keyword.function"] = { fg = colors.purple1 },                   -- Keywords that define a function
+	["@keyword.operator"] = { fg = colors.lilac2 },                    -- operators that are English words
+	["@keyword.import"] = { fg = colors.pink2 },                       -- Keywords for including modules
+	["@keyword.type"] = { fg = colors.ice1 },                          -- Keywords defining composite types
+	["@keyword.modifier"] = { fg = colors.purple1 },                   -- Keywords defining type modifiers
+	["@keyword.repeat"] = { fg = colors.lilac1 },                      -- Keywords related to loops
+	["@keyword.return"] = { fg = colors.pink1 },                       -- Keywords like 'return' and 'yield'
+	["@keyword.debug"] = { fg = colors.purple2 },                      -- Keywords related to debugging
+	["@keyword.exception"] = { fg = colors.purple2 },                  -- Keywords related to exceptions
+	["@keyword.conditional"] = { fg = colors.lilac1 },                 -- Keywords related to conditionals
+	["@keyword.conditional.ternary"] = { fg = colors.lilac1 },         -- Ternary operators
+	["@keyword.directive"] = { fg = colors.purple1 },                  -- Various preprocessor directives and shebangs
+	["@keyword.directive.define"] = { fg = colors.purple1 },           -- Preprocessor definition directives
+	["@punctuation.delimiter"] = { fg = colors.fg },                   -- Delimiters
+	["@punctuation.bracket"] = { fg = colors.fg },                     -- Brackets
+	["@punctuation.special"] = { fg = colors.ice1 },                   -- Special Symbols
+	["@comment"] = { fg = colors.grey2 },                              -- Line & block comments
+	["@comment.documentation"] = { fg = colors.grey2 },                -- Comments documenting code
+	["@comment.error"] = { bg = "#a3336f", fg = colors.bg1 },          -- Error-type comments
+	["@comment.warning"] = { bg = colors.ice1, fg = colors.bg1 },      -- Warning-type comments
+	["@comment.todo"] = { bg = colors.blue1, fg = colors.bg1 },        -- Todo-type comments
+	["@comment.note"] = { bg = colors.green2, fg = colors.bg1 },       -- Note-type comments
+	["@markup.strong"] = { fg = colors.pink1 },                        -- Bold text
+	["@markup.italic"] = { fg = colors.fg, italic = true },            -- Italic text
+	["@markup.strikethrough"] = { fg = colors.fg, strikethrough = true }, -- Struck-through text
+	["@markup.underline"] = { fg = colors.fg, underline = true },      -- Underlined text
+	["@markup.heading"] = { fg = colors.blue1 },                       -- Heading & titles
+	["@markup.heading.1"] = { fg = "#87bff7" },                        -- Top-level heading
+	["@markup.heading.2"] = { fg = "#8bc2f8" },                        -- Section heading
+	["@markup.heading.3"] = { fg = "#95c7f9" },                        -- Subsection heading
+	["@markup.heading.4"] = { fg = "#99c9fa" },                        -- And so on
+	["@markup.heading.5"] = { fg = "#a2cffb" },                        -- And so forth
+	["@markup.heading.6"] = { fg = "#acd4fc" },                        -- Six levels is enough
+	["@markup.quote"] = { fg = colors.fg },                            -- Block quotes
+	["@markup.math"] = { fg = colors.blue2 },                          -- Math environments
+	["@markup.link"] = { fg = colors.purple2 },                        -- Text references footnotes, citations
+	["@markup.link.label"] = { fg = colors.lilac1 },                   -- Link, reference descriptions
+	["@markup.link.url"] = { fg = colors.orange2, underline = true },  -- URL-style links
+	["@markup.raw"] = { fg = colors.green2 },                          -- Literal or verbatim text
+	["@markup.raw.block"] = { fg = colors.pink1 },                     -- Literal or verbatim text as a stand-alone block
+	["@markup.list"] = { fg = colors.ice1 },                           -- List markers
+	["@markup.list.checked"] = { fg = colors.green1 },                 -- Checked todo-style list markers
+	["@markup.list.unchecked"] = { fg = colors.ice2 },                 -- Unchecked todo-style list markers
+	["@diff.plus"] = { fg = colors.green1 },                           -- Added text (for diff files)
+	["@diff.minus."] = { fg = colors.red2 },                           -- Deleted text (for diff files)
+	["@diff.delta"] = { fg = colors.ice1 },                            -- Changed text (for diff files)
+	["@tag"] = { fg = colors.purple1 },                                -- XML-style tag names (e.g. in XML, HTML, etc.)
+	["@tag.builtin"] = { fg = colors.blue1 },                          -- XML-style tag names (e.g. HTML5 tags)
+	["@tag.attribute"] = { fg = colors.lilac2 },                       -- XML-style tag attributes
+	["@tag.delimiter"] = { fg = colors.ice2 },                         -- XML-style tag delimiters
+
+
+	-- coc highlight groups (:h coc-highlights)
+
+	CocBold = { link = "Normal", bold = true },                  -- For bold text
+	CocItalic = { link = "Normal", italic = true },              -- For italic text
+	CocUnderline = { link = "Normal", underline = true },        -- For underlined text
+	CocStrikThrough = { link = "Normal", strikethrough = true }, -- For struckthrough text
+	CocMarkdownCode = { link = "Normal" },                       -- For inline code in markdown content
+	CocMarkdownHeader = { link = "Normal" },                     -- For markdown header in floating windows
+	CocMarkdownLink = { fg = colors.purple2 },                   -- For markdown link text in floating windows
+
+	CocFadeOut = { fg = colors.grey1 },                          -- For faded out text, such as for highlighting unnecessary code
+	CocErrorSign = { link = "DiagnosticError" },                 -- for error signs
+	CocWarningSign = { link = "DiagnosticWarn" },                -- for warning signs
+	CocInfoSign = { link = "DiagnosticInfo" },                   -- for information signs
+	CocHintSign = { fg = colors.grey2 },                         -- for hint signs
+	CocErrorVirtualText = { link = "DiagnosticVirtualTextError" }, -- for error virtual text
+	CocWarningVirtualText = { link = "DiagnosticVirtualTextWarn" }, -- for warning virtual text
+	CocInfoVirtualText = { link = "DiagnosticVirtualInfo" },     -- for information virtual text
+	CocHintVirtualText = { link = "DiagnosticVirtualHint" },     -- for hint virtual text
+	CocErrorHighlight = { link = "DiagnosticUnderlineError" },   -- for error code range
+	CocWarningHighlight = { link = "DiagnosticUnderlineWarn" },  -- for warning code range
+	CocInfoHighlight = { link = "DiagnosticUnderlineInfo" },     -- for information code range
+	CocHintHighlight = { link = "DiagnosticUnderlineHint" },     -- for hint code range
+	CocDeprecatedHighlight = { link = "Comment" },               -- for deprecated code range, links t
+	CocStrikeThrough = { link = "Comment" },                     -- by default
+	CocUnusedHighlight = { fg = colors.grey1 },                  -- for unnecessary code range, links to |CocFadeOut| by default
+	CocErrorLine = { link = "Comment" },                         -- line highlight of sign which contains error
+	CocWarningLine = { link = "Comment" },                       -- line highlight of sign which contains warning
+	CocInfoLine = { link = "Comment" },                          -- line highlight of sign which information
+	CocHintLine = { link = "Comment" },                          -- line highlight of sign which contains hint
+
+	CocHighlightText = { bg = colors.bg2, fg = colors.grey1 },   -- default symbol highlight
+	CocHighlightRead = { link = "CocHighlightText" },            -- for `Read` kind of document symbol
+	CocHighlightWrite = { link = "CocHighlightText" },           -- for `Write` kind of document symbol
+
+	CocFloating = { link = "Normal" },                           -- default highlight group of floating windows/popups. Default links to |NormalFloat| on neovim and |Pmenu| on vim
+	CocFloatThumb = { link = "Normal" },                         -- thumb highlight of scrollbar
+	CocFloatSbar = { link = "Normal" },                          -- Scrollbar highlight of floating window/popups
+	CocFloatDividingLine = { link = "Comment" },                 -- for dividing lines, links to |NonText| by default
+	CocFloatActive = { link = "Comment" },                       -- for activated text, links to |CocSearch| by default
+	CocErrorFloat = { DiagnosticError },                         -- for error text in floating windows/popups
+	CocHintFloat = { DiagnosticHint },                           -- for hint text in floating windows/popups
+
+	CocInlayHint = { link = "Comment" },                         -- for highlight inlay hint virtual text block, default uses foreground from |CocHintSign| and background from |SignColumn
+	CocInlayHintParameter = { link = "Comment" },                -- for parameter kind of inlay hint
+	CocInlayHintType = { link = "Comment" },                     -- for type kind of inlay hint
+
+	CocNotificationProgress = { link = "Comment" },              -- for progress line in progress notification
+	CocNotificationButton = { link = "Normal", underline = true }, -- for action buttons in notification window
+	CocNotificationError = { link = "DiagnosticError" },         -- for highlight border of error notification
+	CocNotificationWarning = { link = "DiagnosticWarn" },        -- for highlight border of warning notification
+	CocNotificationInfo = { link = "DiagnosticInfo" },           -- for highlight border of info notification
+
+	CocSearch = { link = "Comment" },                            -- for matched characters
+	CocListLine = { bg = colors.bg2, fg = colors.grey1 },        -- for current cursor line
+	CocListSearch = { link = "Comment" },                        -- for matched characters
+	CocListMode = { fg = colors.ice1 },                          -- for mode text in the statusline
+	CocListPath = { link = "Comment" },                          -- for cwd text in the statusline
+	CocSelectedText = { link = "Comment" },                      -- for sign text of selected lines (multiple selection only)
+	CocSelectedLine = { link = "Comment" },                      -- for line highlight of selected lines (multiple selection only)
+
+	CocTreeTitle = { fg = colors.blue2 },                        -- for title in tree view
+	CocTreeDescription = { link = "Comment" },                   -- for description beside label
+	CocTreeOpenClose = { link = "Normal" },                      -- for open and close icon in tree view
+	CocTreeSelected = { link = "CocListLine" },                  -- for highlight lines contains selected node
+
+	CocPumSearch = { link = "Comment" },                         -- for matched input characters, linked to |CocSearch| by default
+	CocPumDetail = { link = "Comment" },                         -- for highlight label details that follows label (including possible detail and description)
+	CocPumMenu = { link = "Normal" },                            -- for menu of complete item
+	CocPumShortcut = { link = "Comment" },                       -- for shortcut text of source
+	CocPumDeprecated = { link = "Comment" },                     -- for deprecated label
+	CocPumVirtualText = { link = "Comment" },                    -- for virtual text which enabled by |coc-config-suggest-virtualText
+
+	CocSymbolDefault = { fg = colors.lilac1 },                   -- linked to |hl-MoreMsg| by default
 	CocSymbolText = { link = "CocSymbolDefault" },
 	CocSymbolUnit = { link = "CocSymbolDefault" },
 	CocSymbolValue = { link = "CocSymbolDefault" },
-	CocSymbolEnum = { fg = "#AAECF8" },
-	CocSymbolEnumMember = { fg = "#94AEF9" },
-	CocSymbolEvent = { fg = "#E2B88D" },
-	CocSymbolField = { fg = "#8FC8FA" },
-	CocSymbolFile = { fg = "#9486E4" },
-	CocSymbolFunction = { fg = "#87BFF7" },
-	CocSymbolInterface = { fg = "#AAECF8" },
-	CocSymbolKey = { fg = "#7ED7BE" },
-	CocSymbolKeyword = { fg = "#9486E4" },
-	CocSymbolMethod = { fg = "#8FC8FA" },
-	CocSymbolModule = { fg = "#9BE9F8" },
-	CocSymbolNamespace = { fg = "#9BE9F8" },
-	CocSymbolNull = { fg = "#AAECF8" },
-	CocSymbolNumber = { fg = "#ECDFAC" },
-	CocSymbolPackage = { fg = "#9486E4" },
-	CocSymbolProperty = { fg = "#94AEF9" },
-	CocSymbolReference = { fg = "#ECDFAC" },
-	CocSymbolString = { fg = "#7ED7BE" },
-	CocSymbolTypeParameter = { fg = "#AAECF8" },
-	CocSymbolVariable = { fg = "#BF4A7F" },
-	CocTreeTitle = { fg = "#8FC8FA" },
-	CocUnderline = { bg = "#131320", underline = true },
-	CocUnusedHighlight = { fg = "#63668C" },
-	Comment = { bg = "#131320" },
-	CocDeprecatedHighlight = { link = "Comment" },
-	CocErrorLine = { link = "Comment" },
-	CocFloatActive = { link = "Comment" },
-	CocFloatDividingLine = { link = "Comment" },
-	CocHintLine = { link = "Comment" },
-	CocInfoLine = { link = "Comment" },
-	CocInlayHint = { link = "Comment" },
-	CocInlayHintParameter = { link = "Comment" },
-	CocInlayHintType = { link = "Comment" },
-	CocListPath = { link = "Comment" },
-	CocListSearch = { link = "Comment" },
-	CocNotificationProgress = { link = "Comment" },
-	CocPumDeprecated = { link = "Comment" },
-	CocPumDetail = { link = "Comment" },
-	CocPumSearch = { link = "Comment" },
-	CocPumShortcut = { link = "Comment" },
-	CocPumVirtualText = { link = "Comment" },
-	CocSearch = { link = "Comment" },
-	CocSelectedLine = { link = "Comment" },
-	CocSelectedText = { link = "Comment" },
-	CocStrikeThrough = { link = "Comment" },
-	CocTreeDescription = { link = "Comment" },
-	CocWarningLine = { link = "Comment" },
-	CursorLineFold = { link = "Comment" },
-	CursorLineSign = { link = "Comment" },
-	FloatBorder = { link = "Comment" },
-	FoldColumn = { link = "Comment" },
-	LineNr = { link = "Comment" },
-	LineNrAbove = { link = "Comment" },
-	LineNrBelow = { link = "Comment" },
-	LspCodeLensSeparator = { link = "Comment" },
-	SignColumn = { link = "Comment" },
-	StatusLineNC = { link = "Comment" },
-	WinBar = { link = "Comment" },
-	WinBarNC = { link = "Comment" },
-	Conceal = { bg = "#131320" },
-	LspCodeLens = { link = "Conceal" },
-	Conditional = { fg = "#88A4F7" },
-	Label = { link = "Conditional" },
-	Repeat = { link = "Conditional" },
-	Constant = { fg = "#E2B88D" },
-	Boolean = { link = "Constant" },
-	CurSearch = { bg = "#7ED7BE" },
-	Cursor = { bg = "#D6D9FF" },
-	CursorColumn = { bg = "#232338" },
-	CursorIM = { bg = "#D6D9FF" },
-	CursorLine = { bg = "#232338" },
-	CursorLineNr = { bg = "#131320" },
-	CocErrorFloat = { link = "DiagnosticError" },
-	CocErrorSign = { link = "DiagnosticError" },
-	CocNotificationError = { link = "DiagnosticError" },
-	DiagnosticFloatingError = { link = "DiagnosticError" },
-	DiagnosticSignError = { link = "DiagnosticError" },
-	DiagnosticHint = { fg = "#88A4F7" },
-	CocHintFloat = { link = "DiagnosticHint" },
-	DiagnosticFloatingHint = { link = "DiagnosticHint" },
-	DiagnosticSignHint = { link = "DiagnosticHint" },
-	DiagnosticInfo = { fg = "#87BFF7" },
-	CocInfoSign = { link = "DiagnosticInfo" },
-	CocNotificationInfo = { link = "DiagnosticInfo" },
-	DiagnosticFloatingInfo = { link = "DiagnosticInfo" },
-	DiagnosticSignInfo = { link = "DiagnosticInfo" },
-	DiagnosticOk = { fg = "#74D2B7" },
-	DiagnosticFloatingOk = { link = "DiagnosticOk" },
-	DiagnosticSignOk = { link = "DiagnosticOk" },
-	DiagnosticUnderlineError = { bg = "#131320", sp = "#BF4A7F", undercurl = true },
-	CocErrorHighlight = { link = "DiagnosticUnderlineError" },
-	DiagnosticUnderlineHint = { bg = "#131320", sp = "#74D2B7", undercurl = true },
-	CocHintHighlight = { link = "DiagnosticUnderlineHint" },
-	DiagnosticUnderlineOk = { link = "DiagnosticUnderlineHint" },
-	DiagnosticUnderlineInfo = { bg = "#131320", sp = "#87BFF7", undercurl = true },
-	CocInfoHighlight = { link = "DiagnosticUnderlineInfo" },
-	DiagnosticUnderlineWarn = { bg = "#131320", sp = "#9BE9F8", undercurl = true },
-	CocWarningHighlight = { link = "DiagnosticUnderlineWarn" },
-	DiagnosticVirtualTextError = { bg = "#12070C" },
-	CocErrorVirtualText = { link = "DiagnosticVirtualTextError" },
-	DiagnosticVirtualTextHint = { bg = "#0D111C" },
-	CocHintVirtualText = { link = "DiagnosticVirtualTextHint" },
-	DiagnosticVirtualTextInfo = { bg = "#061423" },
-	CocInfoVirtualText = { link = "DiagnosticVirtualTextInfo" },
-	DiagnosticVirtualTextOk = { bg = "#0A1512" },
-	DiagnosticVirtualTextWarn = { bg = "#041F24" },
-	CocWarningVirtualText = { link = "DiagnosticVirtualTextWarn" },
-	DiagnosticWarn = { fg = "#9BE9F8" },
-	CocNotificationWarning = { link = "DiagnosticWarn" },
-	CocWarningSign = { link = "DiagnosticWarn" },
-	DiagnosticFloatingWarn = { link = "DiagnosticWarn" },
-	DiagnosticSignWarn = { link = "DiagnosticWarn" },
-	DiffAdd = { bg = "#131320", sp = "#74D2B7", underline = true },
-	DiffChange = { bg = "#131320", sp = "#87BFF7", underline = true },
-	DiffDelete = { bg = "#131320", sp = "#BF4A7F", underline = true },
-	DiffText = { bg = "#131320", sp = "#D6D9FF", underline = true },
-	Directory = { bg = "#131320" },
-	EndOfBuffer = { bg = "#131320" },
-	Error = { fg = "#BF4A7F" },
-	DiagnosticError = { link = "Error" },
-	ErrorMsg = { bg = "#131320" },
-	Exception = { fg = "#C45A99" },
-	FloatTitle = { bg = "#131320" },
-	Folded = { bg = "#262640" },
-	Function = { fg = "#87BFF7" },
-	Identifier = { fg = "#7ED7BE" },
-	IncSearch = { bg = "#74D2B7" },
-	Keyword = { fg = "#D6D9FF" },
-	LspInlayHint = { bg = "#222239" },
-	LspSignatureActiveParameter = { bg = "#131320" },
-	Macro = { fg = "#C45A99" },
-	Define = { link = "Macro" },
-	Include = { link = "Macro" },
-	PreCondit = { link = "Macro" },
-	PreProc = { link = "Macro" },
-	MatchParen = { bg = "#131320" },
-	ModeMsg = { bg = "#131320" },
-	MoreMsg = { bg = "#131320" },
-	NonText = { bg = "#131320" },
-	NotifyERRORBorder = { fg = "#BF4A7F" },
-	NotifyERRORTitle = { fg = "#BD4277" },
-	NotifyERRORIcon = { link = "NotifyERRORTitle" },
-	NotifyINFOBorder = { fg = "#8FC8FA" },
-	NotifyINFOTitle = { fg = "#87BFF7" },
-	NotifyINFOIcon = { link = "NotifyINFOTitle" },
-	NotifyTRACEBorder = { fg = "#9F95E9" },
-	NotifyTRACETitle = { fg = "#9486E4" },
-	NotifyTRACEIcon = { link = "NotifyTRACETitle" },
-	NotifyWARNBorder = { fg = "#AAECF8" },
-	NotifyWARNTitle = { fg = "#9BE9F8" },
-	NotifyWARNIcon = { link = "NotifyWARNTitle" },
-	Number = { fg = "#ECDFAC" },
-	Float = { link = "Number" },
-	Operator = { fg = "#94AEF9" },
-	Question = { bg = "#131320" },
-	QuickFixLine = { bg = "#262640" },
-	Special = { fg = "#87BFF7" },
-	Debug = { link = "Special" },
-	Delimiter = { link = "Special" },
-	SpecialChar = { link = "Special" },
-	SpecialComment = { link = "Special" },
-	Tag = { link = "Special" },
-	SpecialKey = { bg = "#131320" },
-	SpellBad = { bg = "#131320", sp = "#BF4A7F", undercurl = true },
-	SpellCap = { bg = "#131320", sp = "#74D2B7", undercurl = true },
-	SpellLocal = { bg = "#131320", sp = "#87BFF7", undercurl = true },
-	SpellRare = { bg = "#131320", sp = "#9486E4", undercurl = true },
-	Statement = { fg = "#9486E4" },
-	String = { fg = "#74D2B7" },
-	Character = { link = "String" },
-	Substitute = { bg = "#BF4A7F" },
-	TabLine = { bg = "#131320" },
-	TabLineSel = { bg = "#262640" },
-	TermCursor = { bg = "#D6D9FF" },
-	Title = { bg = "#131320" },
-	Todo = { bg = "#87BFF7" },
-	Type = { fg = "#9BE9F8" },
-	StorageClass = { link = "Type" },
-	Structure = { link = "Type" },
-	Typedef = { link = "Type" },
-	Underlined = { sp = "#D6D9FF", underline = true },
-	VertSplit = { bg = "#131320" },
-	WarningMsg = { bg = "#131320" },
-	Whitespace = { bg = "#131320" },
-	Winseparator = { bg = "#131320" },
-	lCursor = { bg = "#D6D9FF" },
-	["@attribute"] = { fg = "#E8BF9C" },
-	["@attribute.builtin"] = { fg = "#9486E4" },
-	["@boolean"] = { fg = "#E2B88D" },
-	["@character"] = { fg = "#74D2B7" },
-	["@character.special"] = { fg = "#8FC8FA" },
-	["@comment"] = { fg = "#4F5172" },
-	["@comment.documentation"] = { fg = "#4F5172" },
-	["@comment.error"] = { bg = "#A3336F" },
-	["@comment.note"] = { bg = "#7ED7BE" },
-	["@comment.todo"] = { bg = "#87BFF7" },
-	["@comment.warning"] = { bg = "#9BE9F8" },
-	["@constant"] = { fg = "#E2B88D" },
-	["@constant.builtin"] = { fg = "#E2B88D" },
-	["@constant.macro"] = { fg = "#C45A99" },
-	["@constructor"] = { fg = "#74D2B7" },
-	["@diff.delta"] = { fg = "#9BE9F8" },
-	["@diff.minus."] = { fg = "#BF4A7F" },
-	["@diff.plus"] = { fg = "#74D2B7" },
-	["@function"] = { fg = "#87BFF7" },
-	["@function.builtin"] = { fg = "#88A4F7" },
-	["@function.call"] = { fg = "#88A4F7" },
-	["@function.macro"] = { fg = "#C45A99" },
-	["@function.method"] = { fg = "#87BFF7" },
-	["@function.method.call"] = { fg = "#88A4F7" },
-	["@keyword"] = { fg = "#9486E4" },
-	["@keyword.conditional"] = { fg = "#88A4F7" },
-	["@keyword.conditional.ternary"] = { fg = "#88A4F7" },
-	["@keyword.coroutine"] = { fg = "#9486E4" },
-	["@keyword.debug"] = { fg = "#9F95E9" },
-	["@keyword.directive"] = { fg = "#9486E4" },
-	["@keyword.directive.define"] = { fg = "#9486E4" },
-	["@keyword.exception"] = { fg = "#9F95E9" },
-	["@keyword.function"] = { fg = "#9486E4" },
-	["@keyword.import"] = { fg = "#D864AA" },
-	["@keyword.modifier"] = { fg = "#9486E4" },
-	["@keyword.operator"] = { fg = "#94AEF9" },
-	["@keyword.repeat"] = { fg = "#88A4F7" },
-	["@keyword.return"] = { fg = "#C45A99" },
-	["@keyword.type"] = { fg = "#9BE9F8" },
-	["@label"] = { fg = "#88A4F7" },
-	["@markup.heading"] = { fg = "#87BFF7" },
-	["@markup.heading.1"] = { fg = "#8BC2F8" },
-	["@markup.heading.2"] = { fg = "#95C7F9" },
-	["@markup.heading.3"] = { fg = "#99C9FA" },
-	["@markup.heading.4"] = { fg = "#9ECCFA" },
-	["@markup.heading.5"] = { fg = "#A2CFFB" },
-	["@markup.heading.6"] = { fg = "#ACD4FC" },
-	["@markup.italic"] = { fg = "#D6D9FF", italic = true },
-	["@markup.link"] = { fg = "#9F95E9" },
-	["@markup.link.label"] = { fg = "#88A4F7" },
-	["@markup.link.url"] = { fg = "#E8BF9C", underline = true },
-	["@markup.list"] = { fg = "#9BE9F8" },
-	["@markup.list.checked"] = { fg = "#74D2B7" },
-	["@markup.list.unchecked"] = { fg = "#AAECF8" },
-	["@markup.math"] = { fg = "#8FC8FA" },
-	["@markup.quote"] = { fg = "#D6D9FF" },
-	["@markup.raw"] = { fg = "#7ED7BE" },
-	["@markup.raw.block"] = { fg = "#C45A99" },
-	["@markup.strikethrough"] = { fg = "#D6D9FF", strikethrough = true },
-	["@markup.strong"] = { fg = "#C45A99" },
-	["@markup.underline"] = { fg = "#D6D9FF", underline = true },
-	["@module"] = { fg = "#AAECF8" },
-	["@module.builtin"] = { fg = "#87BFF7" },
-	["@number"] = { fg = "#ECDFAC" },
-	["@number.float"] = { fg = "#ECDFAC" },
-	["@operator"] = { fg = "#D6D9FF" },
-	["@property"] = { fg = "#94AEF9" },
-	["@punctuation.bracket"] = { fg = "#D6D9FF" },
-	["@punctuation.delimiter"] = { fg = "#D6D9FF" },
-	["@punctuation.special"] = { fg = "#9BE9F8" },
-	["@slushtring.escape"] = { fg = "#E5DCA4" },
-	["@string"] = { fg = "#74D2B7" },
-	["@string.documentation"] = { fg = "#74D2B7" },
-	["@string.regex"] = { fg = "#E5DCA4" },
-	["@string.special"] = { fg = "#8FC8FA" },
-	["@string.special.path"] = { fg = "#8FC8FA" },
-	["@string.special.symbol"] = { fg = "#8FC8FA" },
-	["@string.special.url"] = { fg = "#E8BF9C" },
-	["@tag"] = { fg = "#9486E4" },
-	["@tag.attribute"] = { fg = "#94AEF9" },
-	["@tag.builtin"] = { fg = "#87BFF7" },
-	["@tag.delimiter"] = { fg = "#AAECF8" },
-	["@type"] = { fg = "#9BE9F8" },
-	["@type.builtin"] = { fg = "#9BE9F8" },
-	["@type.definition"] = { fg = "#9BE9F8" },
-	["@variable"] = { fg = "#C0CFFC" },
-	["@variable.builtin"] = { fg = "#BF4A7F" },
-	["@variable.member"] = { fg = "#8FC8FA" },
-	["@variable.parameter"] = { fg = "#AAECF8" },
-	["@variable.parameter.builtin"] = { fg = "#94AEF9" },
-	-- PATCH_CLOSE
+	CocSymbolKeyword = { fg = colors.purple1 },
+	CocSymbolSnippet = { link = "CocSymbolDefault" },
+	CocSymbolColor = { fg = colors.yellow2 },
+	CocSymbolReference = { fg = colors.yellow2 },
+	CocSymbolFolder = { link = "CocSymbolDefault" },
+	CocSymbolFile = { fg = colors.purple1 },
+	CocSymbolModule = { fg = colors.ice1 },
+	CocSymbolNamespace = { fg = colors.ice1 },
+	CocSymbolPackage = { fg = colors.purple1 },
+	CocSymbolClass = { fg = colors.green1 },
+	CocSymbolMethod = { fg = colors.blue2 },
+	CocSymbolProperty = { fg = colors.lilac2 },
+	CocSymbolField = { fg = colors.blue2 },
+	CocSymbolConstructor = { fg = colors.green1 },
+	CocSymbolEnum = { fg = colors.ice2 },
+	CocSymbolInterface = { fg = colors.ice2 },
+	CocSymbolFunction = { fg = colors.blue1 },
+	CocSymbolVariable = { fg = colors.red2 },
+	CocSymbolConstant = { fg = colors.orange1 },
+	CocSymbolString = { fg = colors.green2 },
+	CocSymbolNumber = { fg = colors.yellow2 },
+	CocSymbolBoolean = { fg = colors.orange2 },
+	CocSymbolArray = { link = "CocSymbolDefault" },
+	CocSymbolObject = { link = "CocSymbolDefault" },
+	CocSymbolKey = { fg = colors.green2 },
+	CocSymbolNull = { fg = colors.ice2 },
+	CocSymbolEnumMember = { fg = colors.lilac2 },
+	CocSymbolStruct = { link = "Normal" },
+	CocSymbolEvent = { fg = colors.orange1 },
+	CocSymbolOperator = { link = "Normal" },
+	CocSymbolTypeParameter = { fg = colors.ice2 },
+
+
+	-- nvim-notify highlight groups
+	NotifyERRORBorder = { fg = colors.red2 },
+	NotifyWARNBorder = { fg = colors.ice2 },
+	NotifyINFOBorder = { fg = colors.blue2 },
+	NotifyTRACEBorder = { fg = colors.purple2 },
+	NotifyDEBUGBorder = { link = "Normal" },
+	NotifyERRORTitle = { fg = colors.red1 },
+	NotifyWARNTitle = { fg = colors.ice1 },
+	NotifyINFOTitle = { fg = colors.blue1 },
+	NotifyTRACETitle = { fg = colors.purple1 },
+	NotifyDEBUGTitle = { link = "Normal" },
+	NotifyERRORIcon = { fg = colors.red1 },
+	NotifyWARNIcon = { fg = colors.ice1 },
+	NotifyINFOIcon = { fg = colors.blue1 },
+	NotifyTRACEIcon = { fg = colors.purple1 },
+	NotifyDEBUGIcon = { link = "Normal" },
 }
 
 vim.cmd("highlight clear")
 vim.cmd("set t_Co=256")
 vim.cmd("let g:colors_name='my_theme'")
 
-for group, attrs in pairs(colors) do
+for group, attrs in pairs(hl_groups) do
 	vim.api.nvim_set_hl(0, group, attrs)
 end
