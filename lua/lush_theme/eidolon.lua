@@ -168,7 +168,7 @@ local theme = lush(function(injected_functions)
 
 		-- Treesitter highligh groups (:h treesitter-highlight)
 
-		sym("@variable") { fg = clr.fg },                                                  -- Various variable names
+		sym("@variable") { fg = clr.lilac2.darken(-40) },                                  -- Various variable names
 		sym("@variable.builtin") { fg = clr.red2 },                                        -- Built-in variable names
 		sym("@variable.parameter") { fg = clr.ice2 },                                      -- Parameters of a function
 		sym("@variable.parameter.builtin") { fg = clr.lilac2 },                            -- Special parameters (e.g. _, it)
