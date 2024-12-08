@@ -27,12 +27,27 @@
 
 ![Alt test](https://github.com/Vallen217/eidolon.nvim/blob/main/screenshots/4.png?raw=true)
 
+## Supported plugins
+
+- [LSP](https://github.com/neovim/nvim-lspconfig)
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [coc.nvim](https://github.com/neoclide/coc.nvim)
+- [nvim-notify](https://github.com/rcarriga/nvim-notify)
+
 ## Installation
 
-Install the theme via package manager, such as [packer.nvim](https://github.com/wbthomason/packer.nvim)
+Install the theme via you're prefered package manager
+
+[packer.nvim](https://github.com/wbthomason/packer.nvim)
 
 ```lua
 use("Vallen217/eidolon.nvim")
+```
+
+[lazy.nvim](https://github.com/folke/lazy.nvim)
+
+```lua
+{ "Vallen217/eidolon.nvim", lazy = false, priority = 1000 },
 ```
 
 ## Usage
@@ -43,4 +58,14 @@ vim.cmd[[colorscheme eidolon]]
 
 ### TODO:
 
-- Include lualine config
+- Integrate
+  - [lualine](https://github.com/nvim-lualine/lualine.nvim)
+  - [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
+  - [telescope](https://github.com/nvim-telescope/telescope.nvim)
+  - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
+  - [barbar](https://github.com/romgrk/barbar.nvim)
+  - [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
+  - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+  - [alpha-nvim](https://github.com/goolord/alpha-nvim)
+  - [which-key.nvim](https://github.com/folke/which-key.nvim)
+  - [virt-column.nvim](https://github.com/lukas-reineke/virt-column.nvim)
