@@ -33,6 +33,7 @@
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [coc.nvim](https://github.com/neoclide/coc.nvim)
 - [nvim-notify](https://github.com/rcarriga/nvim-notify)
+- [lualine](https://github.com/nvim-lualine/lualine.nvim)
 
 ## Installation
 
@@ -59,7 +60,6 @@ vim.cmd[[colorscheme eidolon]]
 ### TODO:
 
 - Integrate
-  - [lualine](https://github.com/nvim-lualine/lualine.nvim)
   - [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
   - [telescope](https://github.com/nvim-telescope/telescope.nvim)
   - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
