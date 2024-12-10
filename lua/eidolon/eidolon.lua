@@ -1,7 +1,7 @@
 local theme = {}
 local colors = require("eidolon.colors")
 
--- Editor highlight groups
+-- Editor
 theme.load_editor = function()
 	return {
 		Normal = { bg = colors.bg1, fg = colors.fg },                     -- Normal text
@@ -78,7 +78,7 @@ theme.load_editor = function()
 	}
 end
 
--- General syntax group highlights (:h group-name)
+-- General syntax (:h group-name)
 theme.load_syntax = function()
 	return {
 		Constant = { fg = colors.orange1 },          -- (*) Any constant
@@ -124,7 +124,7 @@ theme.load_syntax = function()
 	}
 end
 
--- lsp highlight groups (:h lsp-highlight)
+-- lsp (:h lsp-highlight)
 theme.load_lsp = function()
 	return {
 		LspReferenceText = { link = "Normal" },                       -- Used for highlighting "text" references
@@ -136,7 +136,7 @@ theme.load_lsp = function()
 		LspSignatureActiveParameter = { bg = colors.bg1, fg = colors.bg1 }, -- Used to highlight the active parameter in the signature help. See |vim.lsp.handlers.signature_help()|.
 
 
-		-- Diagnostic highligh groups (:h diagnostic-highlights)
+		-- Diagnostic (:h diagnostic-highlights)
 		DiagnosticError = { Error },                                                   -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		DiagnosticWarn = { fg = colors.ice1 },                                         -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		DiagnosticInfo = { fg = colors.blue1 },                                        -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
@@ -165,7 +165,7 @@ theme.load_lsp = function()
 	}
 end
 
--- Treesitter highligh groups (:h treesitter-highlight)
+-- Treesitter (:h treesitter-highlight)
 theme.load_treesitter = function()
 	return {
 		["@variable"] = { fg = "#c0cffc" },                             -- Various variable names
@@ -261,7 +261,7 @@ theme.load_treesitter = function()
 	}
 end
 
--- coc highlight groups (:h coc-highlights)
+-- coc (:h coc-highlights)
 theme.load_coc = function()
 	return {
 		CocBold = { link = "Normal", bold = true },               -- For bold text
@@ -373,7 +373,7 @@ theme.load_coc = function()
 	}
 end
 
--- nvim-notify highlight groups
+-- nvim-notify
 theme.load_notify = function()
 	return {
 		NotifyERRORBorder = { fg = colors.red2 },
@@ -391,6 +391,39 @@ theme.load_notify = function()
 		NotifyINFOIcon = { fg = colors.blue1 },
 		NotifyTRACEIcon = { fg = colors.purple1 },
 		NotifyDEBUGIcon = { link = "Normal" },
+	}
+end
+
+-- nvim-cmp (:h cmp-highlight)
+theme.load_cmp = function()
+	return {
+		CmpItemAbbr              = { fg = colors.fg }, -- Highlight group for unmatched characters of each completion field.
+		CmpItemAbbrDeprecated    = { fg = colors.fg }, -- Highlight group for unmatched characters of each deprecated completion field.
+		CmpItemAbbrMatch         = { fg = colors.fg }, -- Highlight group for matched characters of each completion field. Matched characters
+		CmpItemAbbrMatchFuzzy    = { fg = colors.fg }, -- Highlight group for fuzzy-matched characters of each completion field.
+		CmpItemKind              = { fg = colors.fg }, -- Highlight group for the kind of the field.
+		CmpItemKindMethod        = { link = "@function.method" },
+		CmpItemKindText          = { link = "@variable" },
+		CmpItemKindFunction      = { link = "@function" },
+		CmpItemKindConstructor   = { link = "@constructor" },
+		CmpItemKindVariable      = { link = "@variable" },
+		CmpItemKindClass         = { link = "@type" },
+		CmpItemKindInterface     = { link = "@type" },
+		CmpItemKindModule        = { link = "@module" },
+		CmpItemKindProperty      = { link = "@property" },
+		CmpItemKindOperator      = { link = "@operator" },
+		CmpItemKindUnit          = { link = "@variable.member" },
+		CmpItemKindValue         = { link = "@variable.member" },
+		CmpItemKindField         = { fg = colors.blue2 },
+		CmpItemKindEnum          = { fg = colors.ice2 },
+		CmpItemKindKeyword       = { link = "@keyword" },
+		CmpItemKindFile          = { fg = colors.purple1 },
+		CmpItemKindFolder        = { fg = colors.lilac1 },
+		CmpItemKindEnumMember    = { link = "@variable.member" },
+		CmpItemKindConstant      = { link = "@constant" },
+		CmpItemKindStruct        = { link = "@structure" },
+		CmpItemKindTypeParameter = { link = "@variable.parameter" },
+
 	}
 end
 

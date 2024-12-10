@@ -29,11 +29,12 @@
 
 ## Supported plugins
 
-- [LSP](https://github.com/neovim/nvim-lspconfig)
-- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [coc.nvim](https://github.com/neoclide/coc.nvim)
-- [nvim-notify](https://github.com/rcarriga/nvim-notify)
+- [LSP](https://github.com/neovim/nvim-lspconfig)
 - [lualine](https://github.com/nvim-lualine/lualine.nvim)
+- [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
+- [nvim-notify](https://github.com/rcarriga/nvim-notify)
+- [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 
 ## Installation
 
@@ -60,12 +61,13 @@ vim.cmd[[colorscheme eidolon]]
 ### TODO:
 
 - Integrate
-  - [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
-  - [telescope](https://github.com/nvim-telescope/telescope.nvim)
-  - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
   - [barbar](https://github.com/romgrk/barbar.nvim)
+  - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
+  - [dashboard.nvim](https://github.com/nvimdev/dashboard-nvim)
+  - [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
   - [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
-  - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
-  - [alpha-nvim](https://github.com/goolord/alpha-nvim)
-  - [which-key.nvim](https://github.com/folke/which-key.nvim)
+  - [neogit](https://github.com/NeogitOrg/neogit)
+  - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
+  - [telescope](https://github.com/nvim-telescope/telescope.nvim)
   - [virt-column.nvim](https://github.com/lukas-reineke/virt-column.nvim)
+  - [which-key.nvim](https://github.com/folke/which-key.nvim)
