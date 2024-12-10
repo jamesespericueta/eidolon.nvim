@@ -454,4 +454,16 @@ theme.load_ibl = function()
 	}
 end
 
+-- which-key.nvim
+theme.load_which_key = function()
+	return {
+		WhichKey = { fg = colors.yellow2, bold = true },
+		WhichKeyDesc = { fg = colors.lilac1 },
+		WhichKeyGroup = { fg = colors.blue2 },
+		WhichKeySeperator = { link = "Conceal" },
+		WhichKeyBorder = { link = "FloatBorder" },
+		WhichKeyTitle = { link = "FloatTitle" },
+	}
+end
+
 return theme

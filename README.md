@@ -37,6 +37,7 @@
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [which-key.nvim](https://github.com/folke/which-key.nvim)
 
 ## Installation
 
@@ -69,4 +70,3 @@ vim.cmd[[colorscheme eidolon]]
   - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
   - [telescope](https://github.com/nvim-telescope/telescope.nvim)
   - [virt-column.nvim](https://github.com/lukas-reineke/virt-column.nvim)
-  - [which-key.nvim](https://github.com/folke/which-key.nvim)
