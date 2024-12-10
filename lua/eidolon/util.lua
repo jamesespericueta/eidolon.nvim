@@ -22,6 +22,8 @@ function util.load_theme()
 	local treesitter = eidolon.load_treesitter()
 	local coc = eidolon.load_coc()
 	local notify = eidolon.load_notify()
+	local cmp = eidolon.load_cmp()
+	local gitsigns = eidolon.load_gitsigns()
 
 	util.load_hl_group(editor)
 	util.load_hl_group(syntax)
@@ -29,6 +31,8 @@ function util.load_theme()
 	util.load_hl_group(treesitter)
 	util.load_hl_group(coc)
 	util.load_hl_group(notify)
+	util.load_hl_group(cmp)
+	util.load_hl_group(gitsigns)
 end
 
 return util

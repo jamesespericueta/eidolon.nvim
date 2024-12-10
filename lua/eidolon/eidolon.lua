@@ -427,4 +427,24 @@ theme.load_cmp = function()
 	}
 end
 
+
+-- gitsigns.nvim (:h gitsigns-highlight-groups)
+theme.load_gitsigns = function()
+	return {
+		GitSignsAdd = { link = "DiffAdd" },                     -- Used for the text of 'add' signs.
+		GitSignsAddNr = { link = "DiffAdd" },                   -- Used for number column (when `config.numhl == true`) of 'add' signs.
+		GitSignsAddLn = { link = "DiffAdd" },                   -- Used for buffer line (when `config.linehl == true`) of 'add' signs.
+		GitSignsChange = { link = "DiffChange" },               -- Used for the text of 'change' signs.
+		GitSignsChangeNr = { link = "DiffChange" },             -- Used for number column (when `config.numhl == true`) of 'change' signs.
+		GitSignsChangeLn = { link = "DiffChange" },             -- Used for buffer line (when `config.linehl == true`) of 'change' signs.
+		GitSignsDelete = { link = "DiffDelete" },               -- Used for the text of 'delete' signs.
+		GitSignsDeleteNr = { link = "DiffDelete" },             -- Used for number column (when `config.numhl == true`) of 'delete' signs.
+		GitSignsDeleteLn = { link = "DiffDelete" },             -- Used for deleted word diff regions when `config.word_diff == true`.
+		GitSignsChangedelete = { fg = colors.purple2 },         -- Used for the text of 'changedelete' signs.
+		GitSignsChangedeleteNr = { fg = colors.purple2 },       -- Used for number column (when `config.numhl == true`) of 'changedelete' signs.
+		GitSignsChangedeleteLn = { fg = colors.purple2 },       -- Used for buffer line (when `config.linehl == true`) of 'changedelete' signs.
+		GitSignsCurrentLineBlame = { link = "Comment", bold = true }, -- Used for current line blame.
+	}
+end
+
 return theme

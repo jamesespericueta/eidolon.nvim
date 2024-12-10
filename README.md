@@ -30,6 +30,7 @@
 ## Supported plugins
 
 - [coc.nvim](https://github.com/neoclide/coc.nvim)
+- [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [LSP](https://github.com/neovim/nvim-lspconfig)
 - [lualine](https://github.com/nvim-lualine/lualine.nvim)
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
@@ -61,10 +62,8 @@ vim.cmd[[colorscheme eidolon]]
 ### TODO:
 
 - Integrate
-  - [barbar](https://github.com/romgrk/barbar.nvim)
+  - [aerial.nvim](https://github.com/stevearc/aerial.nvim)
   - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
-  - [dashboard.nvim](https://github.com/nvimdev/dashboard-nvim)
-  - [gitsigns](https://github.com/lewis6991/gitsigns.nvim)
   - [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
   - [neogit](https://github.com/NeogitOrg/neogit)
   - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
