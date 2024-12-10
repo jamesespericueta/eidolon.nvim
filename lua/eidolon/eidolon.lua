@@ -427,7 +427,6 @@ theme.load_cmp = function()
 	}
 end
 
-
 -- gitsigns.nvim (:h gitsigns-highlight-groups)
 theme.load_gitsigns = function()
 	return {
@@ -444,6 +443,14 @@ theme.load_gitsigns = function()
 		GitSignsChangedeleteNr = { fg = colors.purple2 },       -- Used for number column (when `config.numhl == true`) of 'changedelete' signs.
 		GitSignsChangedeleteLn = { fg = colors.purple2 },       -- Used for buffer line (when `config.linehl == true`) of 'changedelete' signs.
 		GitSignsCurrentLineBlame = { link = "Comment", bold = true }, -- Used for current line blame.
+	}
+end
+
+-- indent-blankline (:h indent-blankline)
+theme.load_ibl = function()
+	return {
+		IndentBlanklineChar = { fg = colors.grey1 },
+		IndentBlanklineContextChar = { fg = colors.grey2 },
 	}
 end
 

@@ -24,6 +24,7 @@ function util.load_theme()
 	local notify = eidolon.load_notify()
 	local cmp = eidolon.load_cmp()
 	local gitsigns = eidolon.load_gitsigns()
+	local ibl = eidolon.load_ibl()
 
 	util.load_hl_group(editor)
 	util.load_hl_group(syntax)
@@ -33,6 +34,7 @@ function util.load_theme()
 	util.load_hl_group(notify)
 	util.load_hl_group(cmp)
 	util.load_hl_group(gitsigns)
+	util.load_hl_group(ibl)
 end
 
 return util

@@ -31,6 +31,7 @@
 
 - [coc.nvim](https://github.com/neoclide/coc.nvim)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
+- [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [LSP](https://github.com/neovim/nvim-lspconfig)
 - [lualine](https://github.com/nvim-lualine/lualine.nvim)
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
@@ -64,7 +65,6 @@ vim.cmd[[colorscheme eidolon]]
 - Integrate
   - [aerial.nvim](https://github.com/stevearc/aerial.nvim)
   - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
-  - [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
   - [neogit](https://github.com/NeogitOrg/neogit)
   - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
   - [telescope](https://github.com/nvim-telescope/telescope.nvim)
