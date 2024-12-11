@@ -302,8 +302,8 @@ theme.load_coc = function()
 		CocFloatSbar = { link = "Normal" },                       -- Scrollbar highlight of floating window/popups
 		CocFloatDividingLine = { link = "Comment" },              -- for dividing lines, links to |NonText| by default
 		CocFloatActive = { link = "Comment" },                    -- for activated text, links to |CocSearch| by default
-		CocErrorFloat = { DiagnosticError },                      -- for error text in floating windows/popups
-		CocHintFloat = { DiagnosticHint },                        -- for hint text in floating windows/popups
+		CocErrorFloat = { link = "DiagnosticError" },             -- for error text in floating windows/popups
+		CocHintFloat = { link = "DiagnosticHint" },               -- for hint text in floating windows/popups
 
 		CocInlayHint = { link = "Comment" },                      -- for highlight inlay hint virtual text block, default uses foreground from |CocHintSign| and background from |SignColumn
 		CocInlayHintParameter = { link = "Comment" },             -- for parameter kind of inlay hint
@@ -476,6 +476,51 @@ theme.load_flash = function()
 		FlashPrompt = { link = "MsgArea" },
 		FlashPromptIcon = { link = "Special" },
 		FlashCursor = { link = "Cursor" },
+	}
+end
+
+-- trouble.nvim
+theme.load_trouble = function()
+	return {
+		TroubleCode              = { link = "Special" },
+		TroubleCount             = { link = "TabLineSel" },
+		TroubleDirectory         = { link = "Directory" },
+		TroubleFilename          = { link = "Directory" },
+		TroubleIconArray         = { link = "@punctuation.bracket" },
+		TroubleIconBoolean       = { link = "@boolean" },
+		TroubleIconClass         = { link = "@type" },
+		TroubleIconConstant      = { link = "@constant" },
+		TroubleIconConstructor   = { link = "@constructor" },
+		TroubleIconDirectory     = { link = "Special" },
+		TroubleIconEnum          = { link = "@lsp.type.enum" },
+		TroubleIconEnumMember    = { link = "@lsp.type.enumMember" },
+		TroubleIconEvent         = { link = "Special" },
+		TroubleIconField         = { link = "@variable.member" },
+		TroubleIconFile          = { link = "Normal" },
+		TroubleIconFunction      = { link = "@function" },
+		TroubleIconInterface     = { link = "@lsp.type.interface" },
+		TroubleIconKey           = { link = "@lsp.type.keyword" },
+		TroubleIconMethod        = { link = "@function.method" },
+		TroubleIconModule        = { link = "@module" },
+		TroubleIconNamespace     = { link = "@module" },
+		TroubleIconNull          = { link = "@constant.builtin" },
+		TroubleIconNumber        = { link = "@number" },
+		TroubleIconObject        = { link = "@constant" },
+		TroubleIconOperator      = { link = "@operator" },
+		TroubleIconPackage       = { link = "@module" },
+		TroubleIconProperty      = { link = "@property" },
+		TroubleIconString        = { link = "@string" },
+		TroubleIconStruct        = { link = "@lsp.type.struct" },
+		TroubleIconTypeParameter = { link = "@lsp.type.typeParameter" },
+		TroubleIconVariable      = { link = "@variable" },
+		TroubleIndent            = { link = "LineNr" },
+		TroubleIndentFoldClosed  = { link = "CursorLineNr" },
+		TroubleNormal            = { link = "NormalFloat" },
+		TroubleNormalNC          = { link = "NormalFloat" },
+		TroublePos               = { link = "LineNr" },
+		TroublePreview           = { link = "Visual" },
+		TroubleSource            = { link = "Comment" },
+		TroubleText              = { link = "Normal" },
 	}
 end
 
