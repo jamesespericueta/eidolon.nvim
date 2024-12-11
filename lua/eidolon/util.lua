@@ -30,6 +30,7 @@ function util.load_theme()
 	local trouble = eidolon.load_trouble()
 	local telescope = eidolon.load_telescope()
 	local nvim_tree = eidolon.load_nvim_tree()
+	local aerial = eidolon.load_aerial()
 
 	util.load_hl_group(editor)
 	util.load_hl_group(syntax)
@@ -45,6 +46,7 @@ function util.load_theme()
 	util.load_hl_group(trouble)
 	util.load_hl_group(telescope)
 	util.load_hl_group(nvim_tree)
+	util.load_hl_group(aerial)
 end
 
 return util

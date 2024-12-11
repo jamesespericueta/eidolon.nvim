@@ -29,6 +29,7 @@
 
 ## Supported plugins
 
+- [aerial.nvim](https://github.com/stevearc/aerial.nvim)
 - [coc.nvim](https://github.com/neoclide/coc.nvim)
 - [flash.nvim](https://github.com/folke/flash.nvim)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
@@ -68,7 +69,6 @@ vim.cmd[[colorscheme eidolon]]
 ### TODO:
 
 - Integrate support:
-  - [aerial.nvim](https://github.com/stevearc/aerial.nvim)
   - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
   - [mini-icons](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-icons.md)
   - [neogit](https://github.com/NeogitOrg/neogit)

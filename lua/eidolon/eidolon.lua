@@ -552,4 +552,12 @@ theme.load_nvim_tree = function()
 	}
 end
 
+-- aerial.nvim
+theme.load_aerial = function()
+	return {
+		AerialNormal = { fg = colors.grey1 },
+		AerialLine = { fg = colors.fg, bg = colors.bg2 },
+	}
+end
+
 return theme
