@@ -545,8 +545,8 @@ theme.load_nvim_tree = function()
 		NvimTreeNormal = { link = "Normal" },
 		NvimTreeVertSplit = { fg = colors.bg3, bg = colors.bg1 },
 		NvimTreeRootFolder = { fg = colors.fg, bold = true, },
-		NvimTreeGitDirty = { fg = colors.yellow2 },
-		NvimTreeGitNew = { fg = colors.green1 },
+		NvimTreeGitDirty = { fg = colors.orange2 },
+		NvimTreeGitNew = { fg = colors.green2 },
 		NvimTreeImageFile = { fg = colors.pink1 },
 		NvimTreeFolderIcon = { fg = colors.lilac1 },
 	}
