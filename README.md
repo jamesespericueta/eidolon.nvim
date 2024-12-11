@@ -37,6 +37,7 @@
 - [lualine](https://github.com/nvim-lualine/lualine.nvim)
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [nvim-notify](https://github.com/rcarriga/nvim-notify)
+- [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
 - [telescope](https://github.com/nvim-telescope/telescope.nvim)
 - [trouble.nvim](https://github.com/folke/trouble.nvim)
@@ -67,8 +68,7 @@ vim.cmd[[colorscheme eidolon]]
 ### TODO:
 
 - Integrate support:
-  - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
   - [aerial.nvim](https://github.com/stevearc/aerial.nvim)
   - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
+  - [mini-icons](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-icons.md)
   - [neogit](https://github.com/NeogitOrg/neogit)
-  - [mini]

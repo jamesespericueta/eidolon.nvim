@@ -524,6 +524,7 @@ theme.load_trouble = function()
 	}
 end
 
+-- telescope.nvim
 theme.load_telescope = function()
 	return {
 		TelescopePromptTitle = { link = "FloatTitle" },
@@ -535,6 +536,19 @@ theme.load_telescope = function()
 		TelescopeSelectionCaret = { fg = colors.yellow2 },
 		TelescopeSelection = { bg = colors.bg2 },
 		TelescopeMatching = { link = "Search" },
+	}
+end
+
+-- nvim-tree
+theme.load_nvim_tree = function()
+	return {
+		NvimTreeNormal = { link = "Normal" },
+		NvimTreeVertSplit = { fg = colors.bg3, bg = colors.bg1 },
+		NvimTreeRootFolder = { fg = colors.fg, bold = true, },
+		NvimTreeGitDirty = { fg = colors.yellow2 },
+		NvimTreeGitNew = { fg = colors.green1 },
+		NvimTreeImageFile = { fg = colors.pink1 },
+		NvimTreeFolderIcon = { fg = colors.lilac1 },
 	}
 end
 
