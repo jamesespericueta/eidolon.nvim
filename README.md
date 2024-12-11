@@ -30,6 +30,7 @@
 ## Supported plugins
 
 - [coc.nvim](https://github.com/neoclide/coc.nvim)
+- [flash.nvim](https://github.com/folke/flash.nvim)
 - [gitsigns.nvim](https://github.com/lewis6991/gitsigns.nvim)
 - [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [LSP](https://github.com/neovim/nvim-lspconfig)
@@ -41,7 +42,7 @@
 
 ## Installation
 
-Install the theme via you're prefered package manager
+Install the theme via your prefered package manager
 
 [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
@@ -63,10 +64,11 @@ vim.cmd[[colorscheme eidolon]]
 
 ### TODO:
 
-- Integrate
+- Integrate support:
+  - [trouble](https://github.com/folke/trouble.nvim)
+  - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
+  - [telescope](https://github.com/nvim-telescope/telescope.nvim)
   - [aerial.nvim](https://github.com/stevearc/aerial.nvim)
   - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
   - [neogit](https://github.com/NeogitOrg/neogit)
-  - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
-  - [telescope](https://github.com/nvim-telescope/telescope.nvim)
-  - [virt-column.nvim](https://github.com/lukas-reineke/virt-column.nvim)
+  - [mini]

@@ -26,6 +26,7 @@ function util.load_theme()
 	local gitsigns = eidolon.load_gitsigns()
 	local ibl = eidolon.load_ibl()
 	local which_key = eidolon.load_which_key()
+	local flash = eidolon.load_flash()
 
 	util.load_hl_group(editor)
 	util.load_hl_group(syntax)
@@ -37,6 +38,7 @@ function util.load_theme()
 	util.load_hl_group(gitsigns)
 	util.load_hl_group(ibl)
 	util.load_hl_group(which_key)
+	util.load_hl_group(flash)
 end
 
 return util

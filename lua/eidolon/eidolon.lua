@@ -458,11 +458,24 @@ end
 theme.load_which_key = function()
 	return {
 		WhichKey = { fg = colors.yellow2, bold = true },
-		WhichKeyDesc = { fg = colors.lilac1 },
-		WhichKeyGroup = { fg = colors.blue2 },
+		WhichKeyDesc = { fg = colors.lilac2 },
+		WhichKeyGroup = { fg = colors.ice2 },
 		WhichKeySeperator = { link = "Conceal" },
 		WhichKeyBorder = { link = "FloatBorder" },
 		WhichKeyTitle = { link = "FloatTitle" },
+	}
+end
+
+-- flash.nvim
+theme.load_flash = function()
+	return {
+		FlashBackdrop = { link = "Comment" },
+		FlashMatch = { link = "Search" },
+		FlashCurrent = { link = "IncSearch" },
+		FlashLabel = { link = "Substitute" },
+		FlashPrompt = { link = "MsgArea" },
+		FlashPromptIcon = { link = "Special" },
+		FlashCursor = { link = "Cursor" },
 	}
 end
 
