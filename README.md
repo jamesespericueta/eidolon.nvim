@@ -38,6 +38,7 @@
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter)
+- [telescope](https://github.com/nvim-telescope/telescope.nvim)
 - [trouble.nvim](https://github.com/folke/trouble.nvim)
 - [which-key.nvim](https://github.com/folke/which-key.nvim)
 
@@ -67,7 +68,6 @@ vim.cmd[[colorscheme eidolon]]
 
 - Integrate support:
   - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
-  - [telescope](https://github.com/nvim-telescope/telescope.nvim)
   - [aerial.nvim](https://github.com/stevearc/aerial.nvim)
   - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
   - [neogit](https://github.com/NeogitOrg/neogit)

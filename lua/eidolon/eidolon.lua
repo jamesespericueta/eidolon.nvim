@@ -524,4 +524,18 @@ theme.load_trouble = function()
 	}
 end
 
+theme.load_telescope = function()
+	return {
+		TelescopePromptTitle = { link = "FloatTitle" },
+		TelescopePromptBorder = { link = "FloatBorder" },
+		TelescopeResultsTitle = { link = "FloatTitle" },
+		TelescopeResultsBorder = { link = "FloatBorder" },
+		TelescopePreviewTitle = { fg = colors.yellow2 },
+		TelescopePreviewBorder = { link = "FloatBorder" },
+		TelescopeSelectionCaret = { fg = colors.yellow2 },
+		TelescopeSelection = { bg = colors.bg2 },
+		TelescopeMatching = { link = "Search" },
+	}
+end
+
 return theme

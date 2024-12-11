@@ -28,6 +28,7 @@ function util.load_theme()
 	local which_key = eidolon.load_which_key()
 	local flash = eidolon.load_flash()
 	local trouble = eidolon.load_trouble()
+	local telescope = eidolon.load_telescope()
 
 	util.load_hl_group(editor)
 	util.load_hl_group(syntax)
@@ -41,6 +42,7 @@ function util.load_theme()
 	util.load_hl_group(which_key)
 	util.load_hl_group(flash)
 	util.load_hl_group(trouble)
+	util.load_hl_group(telescope)
 end
 
 return util
