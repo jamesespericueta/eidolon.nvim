@@ -560,4 +560,44 @@ theme.load_aerial = function()
 	}
 end
 
+-- neogit
+theme.load_neogit = function()
+	return {
+		NeogitBranch = { fg = colors.blue2 },
+		NeogitRemote = { fg = colors.yellow2 },
+
+		NeogitSectionHeader = { fg = colors.lilac2 },
+
+		NeogitCursorLine = { bg = colors.bg2 },
+		NeogitAddCursorLine = { bg = colors.bg2 },
+		NeogitDeleteCursorLine = { bg = colors.bg2 },
+		NeogitDiffHeaderCursor = { bg = colors.bg2 },
+		NeogitHunkHeaderCursor = { bg = colors.bg2 },
+		NeogitContextCursor = { bg = colors.bg2 },
+		NeogitHunkMergeHeaderCursor = { bg = colors.bg2 },
+
+		NeogitHunkHeader = { bg = colors.bg1 },
+		NeogitHunkHeaderHighlight = { fg = colors.red2, underline = true, sp = colors.grey3 },
+
+		NeogitHunkMergeHeader = { link = "DiagnosticVirtualTextWarn" },
+		NeogitHunkMergeHeaderHighlight = { fg = colors.fg, underline = true, sp = colors.ice1 },
+
+		NeogitDiffHeader = { link = "DiagnosticVirtualTextInfo" },
+		NeogitDiffHeaderHighlight = { fg = colors.fg, underline = true, sp = colors.blue1 },
+
+		NeogitFloatHeader = { link = "FloatTitle" },
+		NeogitFloatHeaderHighlight = { fg = colors.fg, underline = true, sp = colors.lilac1 },
+
+		NeogitDiffAdd = { fg = colors.green2 },
+		NeogitDiffAdditions = { fg = colors.green1 },
+		NeogitDiffAddHighlight = { fg = colors.green2 },
+		NeogitChangeAdded = { fg = colors.green1 },
+
+		NeogitDiffDelete = { fg = colors.red2 },
+		NeogitDiffDeletions = { fg = colors.red1 },
+		NeogitDiffDeleteHighlight = { fg = colors.red2 },
+		NeogitChangeDeleted = { fg = colors.red1 },
+	}
+end
+
 return theme

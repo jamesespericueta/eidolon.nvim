@@ -36,6 +36,7 @@
 - [indent-blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [LSP](https://github.com/neovim/nvim-lspconfig)
 - [lualine](https://github.com/nvim-lualine/lualine.nvim)
+- [neogit](https://github.com/NeogitOrg/neogit)
 - [nvim-cmp](https://github.com/hrsh7th/nvim-cmp)
 - [nvim-notify](https://github.com/rcarriga/nvim-notify)
 - [nvim-tree](https://github.com/nvim-tree/nvim-tree.lua)
@@ -71,4 +72,3 @@ vim.cmd[[colorscheme eidolon]]
 - Integrate support:
   - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
   - [mini-icons](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-icons.md)
-  - [neogit](https://github.com/NeogitOrg/neogit)

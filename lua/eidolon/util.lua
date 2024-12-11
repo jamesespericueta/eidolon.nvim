@@ -31,6 +31,7 @@ function util.load_theme()
 	local telescope = eidolon.load_telescope()
 	local nvim_tree = eidolon.load_nvim_tree()
 	local aerial = eidolon.load_aerial()
+	local neogit = eidolon.load_neogit()
 
 	util.load_hl_group(editor)
 	util.load_hl_group(syntax)
@@ -47,6 +48,7 @@ function util.load_theme()
 	util.load_hl_group(telescope)
 	util.load_hl_group(nvim_tree)
 	util.load_hl_group(aerial)
+	util.load_hl_group(neogit)
 end
 
 return util
