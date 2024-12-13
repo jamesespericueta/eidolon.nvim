@@ -1,6 +1,6 @@
 package.loaded["eidolon"] = nil
 package.loaded["eidolon.colors"] = nil
-package.loaded["eidolon.eidolon"] = nil
+package.loaded["eidolon.theme"] = nil
 package.loaded["eidolon.util"] = nil
 
 require("eidolon").set()

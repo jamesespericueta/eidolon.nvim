@@ -1,12 +1,45 @@
+--[[
+	The majority of the code here was copied from:
+	https://github.com/shaunsingh/nord.nvim/tree/master/doc
+]]
+
 local util = {}
 local eidolon = require("eidolon.eidolon")
 
+-- Go trough the table and highlight the group with the color values
+util.highlight = function(group, color)
+	local style = color.style and "gui=" .. color.style or "gui=NONE"
+	local fg = color.fg and "guifg=" .. color.fg or "guifg=NONE"
+	local bg = color.bg and "guibg=" .. color.bg or "guibg=NONE"
+	local sp = color.sp and "guisp=" .. color.sp or ""
+
+	local hl = "highlight " .. group .. " " .. style .. " " .. fg .. " " .. bg .. " " .. sp
+
+	vim.cmd(hl)
+	if color.link then
+		vim.cmd("highlight! link " .. group .. " " .. color.link)
+	end
+end
+
+-- Change the background for the terminal, packer and qf windows
+util.contrast = function()
+	vim.cmd([[augroup nord]])
+	vim.cmd([[  autocmd!]])
+	vim.cmd([[  autocmd ColorScheme * lua require("nord.util").onColorScheme()]])
+	vim.cmd([[  autocmd TermOpen * setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]])
+	vim.cmd([[  autocmd FileType packer setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]])
+	vim.cmd([[  autocmd FileType qf setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]])
+	vim.cmd([[augroup end]])
+end
+
+-- Loads the colors from the dictionary Object (colorSet)
 function util.load_hl_group(hl_group)
 	for group, attribute in pairs(hl_group) do
 		vim.api.nvim_set_hl(0, group, attribute)
 	end
 end
 
+-- Load the theme
 function util.load_theme()
 	vim.cmd("highlight clear")
 	if vim.fn.exists("syntax_on") then
@@ -32,7 +65,6 @@ function util.load_theme()
 	local nvim_tree = eidolon.load_nvim_tree()
 	local aerial = eidolon.load_aerial()
 	local neogit = eidolon.load_neogit()
-	local bufferline = eidolon.load_bufferline()
 
 	util.load_hl_group(editor)
 	util.load_hl_group(syntax)
@@ -50,7 +82,6 @@ function util.load_theme()
 	util.load_hl_group(nvim_tree)
 	util.load_hl_group(aerial)
 	util.load_hl_group(neogit)
-	util.load_hl_group(bufferline)
 end
 
 return util

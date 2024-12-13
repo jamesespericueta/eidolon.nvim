@@ -600,11 +600,4 @@ theme.load_neogit = function()
 	}
 end
 
-theme.load_bufferline = function()
-	return {
-		BufferlineFill = { bg = colors.bg1 },
-		BufferlineSelected = { fg = colors.red2, bg = colors.red2 },
-		BufferlineSeperatorSelected = { fg = colors.yellow2, bg = colors.yellow2 },
-	}
-end
 return theme

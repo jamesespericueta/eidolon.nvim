@@ -30,6 +30,7 @@
 ## Supported plugins
 
 - [aerial.nvim](https://github.com/stevearc/aerial.nvim)
+- [barbar.nvim](https://github.com/romgrk/barbar.nvim)
 - [bufferline.nvim](https://github.com/akinsho/bufferline.nvim)
 - [coc.nvim](https://github.com/neoclide/coc.nvim)
 - [flash.nvim](https://github.com/folke/flash.nvim)
@@ -67,9 +68,3 @@ use("Vallen217/eidolon.nvim")
 ```lua
 vim.cmd[[colorscheme eidolon]]
 ```
-
-### TODO:
-
-- Integrate support:
-  - [mini-icons](https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-icons.md)
-  - [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
