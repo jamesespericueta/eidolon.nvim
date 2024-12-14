@@ -25,8 +25,6 @@
 
 ![Alt test](https://github.com/Vallen217/eidolon.nvim/blob/main/screenshots/3.png?raw=true)
 
-![Alt test](https://github.com/Vallen217/eidolon.nvim/blob/main/screenshots/4.png?raw=true)
-
 ## Supported plugins
 
 - [aerial.nvim](https://github.com/stevearc/aerial.nvim)
