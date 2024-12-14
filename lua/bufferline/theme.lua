@@ -9,7 +9,7 @@ theme.highlights = function(new_setting)
 	end
 
 	return {
-		ill = { fg = colors.bg1, bg = colors.bg1 },
+		fill = { fg = colors.bg1, bg = colors.bg1 },
 		background = { fg = colors.grey1, bg = colors.bg1 },
 		offset_separator = { fg = colors.bg1, bg = colors.bg1 },
 		trunc_marker = { fg = colors.bg1, bg = colors.bg1 },

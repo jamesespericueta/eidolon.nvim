@@ -23,9 +23,9 @@ end
 
 -- Change the background for the terminal, packer and qf windows
 util.contrast = function()
-	vim.cmd([[augroup nord]])
+	vim.cmd([[augroup eidolon]])
 	vim.cmd([[  autocmd!]])
-	vim.cmd([[  autocmd ColorScheme * lua require("nord.util").onColorScheme()]])
+	vim.cmd([[  autocmd ColorScheme * lua require("eidolon.util").onColorScheme()]])
 	vim.cmd([[  autocmd TermOpen * setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]])
 	vim.cmd([[  autocmd FileType packer setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]])
 	vim.cmd([[  autocmd FileType qf setlocal winhighlight=Normal:NormalFloat,SignColumn:NormalFloat]])

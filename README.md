@@ -60,7 +60,14 @@ use("Vallen217/eidolon.nvim")
 [lazy.nvim](https://github.com/folke/lazy.nvim)
 
 ```lua
-{ "Vallen217/eidolon.nvim", lazy = false, priority = 1000 },
+{
+    "Vallen217/eidolon.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+        vim.cmd [[colorscheme eidolon]]
+    end
+},
 ```
 
 ## Usage
@@ -68,3 +75,10 @@ use("Vallen217/eidolon.nvim")
 ```lua
 vim.cmd[[colorscheme eidolon]]
 ```
+
+<!--
+TODO:
+    Update screenshots,
+    Add doc file,
+    Update installation/usage
+-->

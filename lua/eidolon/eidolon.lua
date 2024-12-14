@@ -12,8 +12,8 @@ theme.load_editor = function()
 		CurSearch = { bg = colors.green2, fg = colors.bg1 },              -- Highlighting a search pattern under the cursor (see 'hlsearch')
 		lCursor = { bg = colors.fg, fg = colors.bg1 },                    -- Character under the cursor when |language-mapping| is used (see 'guicursor')
 		CursorIM = { bg = colors.fg, fg = colors.bg1 },                   -- Like Cursor, but used when in IME mode |CursorIM|
-		CursorColumn = { bg = colors.bg2 },                               -- Screen-column at the cursor, when 'cursorcolumn' is set.
-		CursorLine = { bg = colors.bg2 },                                 -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
+		CursorColumn = { bg = colors.bg1 },                               -- Screen-column at the cursor, when 'cursorcolumn' is set.
+		CursorLine = { bg = colors.bg1 },                                 -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
 		Directory = { bg = colors.bg1, fg = colors.blue2 },               -- Directory names (and other special names in listings)
 		DiffAdd = { link = "Normal", underline = true, sp = colors.green1 }, -- Diff mode: Added line |diff.txt|
 		DiffChange = { link = "Normal", underline = true, sp = colors.blue1 }, -- Diff mode: Changed line |diff.txt|
@@ -534,7 +534,7 @@ theme.load_telescope = function()
 		TelescopePreviewTitle = { fg = colors.yellow2 },
 		TelescopePreviewBorder = { link = "FloatBorder" },
 		TelescopeSelectionCaret = { fg = colors.yellow2 },
-		TelescopeSelection = { bg = colors.bg2 },
+		TelescopeSelection = { fg = colors.fg, bg = colors.bg2 },
 		TelescopeMatching = { link = "Search" },
 	}
 end
