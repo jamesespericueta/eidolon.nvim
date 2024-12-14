@@ -81,8 +81,8 @@ end
 -- General syntax (:h group-name)
 theme.load_syntax = function()
 	return {
-		Constant = { fg = colors.orange1 },          -- (*) Any constant
-		Boolean = { link = "Constant" },             --   A boolean constant: TRUE, false
+		Constant = { fg = colors.purple1 },          -- (*) Any constant
+		Boolean = { fg = colors.orange1 },           --   A boolean constant: TRUE, false
 		String = { fg = colors.green1 },             --   A string constant: "this is a string"
 		Character = { link = "String" },             --   A character constant: 'c', '\n'
 		Number = { fg = colors.yellow2 },            --   A number constant: 234, 0xff
@@ -96,7 +96,7 @@ theme.load_syntax = function()
 		Repeat = { link = "Conditional" },           --   for, do, while, etc.
 		Label = { link = "Conditional" },            --   case, default, etc.
 		Operator = { fg = colors.lilac2 },           --   "sizeof", "+", "*", etc.
-		Keyword = { fg = colors.fg },                --   any other keyword
+		Keyword = { fg = colors.lilac1 },            --   any other keyword
 		Exception = { fg = colors.pink1 },           --   try, catch, throw
 
 		Macro = { fg = colors.pink1 },               --   Same as Define
@@ -135,7 +135,6 @@ theme.load_lsp = function()
 		LspCodeLensSeparator = { link = "Comment" },                  -- Used to color the seperator between two or more code lens.
 		LspSignatureActiveParameter = { bg = colors.bg1, fg = colors.bg1 }, -- Used to highlight the active parameter in the signature help. See |vim.lsp.handlers.signature_help()|.
 
-
 		-- Diagnostic (:h diagnostic-highlights)
 		DiagnosticError = { Error },                                                   -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
 		DiagnosticWarn = { fg = colors.ice1 },                                         -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
@@ -170,11 +169,11 @@ theme.load_treesitter = function()
 	return {
 		["@variable"] = { fg = "#c0cffc" },                             -- Various variable names
 		["@variable.builtin"] = { fg = colors.red2 },                   -- Built-in variable names
-		["@variable.parameter"] = { fg = colors.ice2 },                 -- Parameters of a function
+		["@orange1.parameter"] = { fg = colors.ice2 },                  -- Parameters of a function
 		["@variable.parameter.builtin"] = { fg = colors.lilac2 },       -- Special parameters (e.g. _, it)
 		["@variable.member"] = { fg = colors.blue2 },                   -- Object and struct fields
 		["@constant"] = { fg = colors.orange1 },                        -- Constant identifiers
-		["@constant.builtin"] = { fg = colors.orange1 },                -- Built-in constant values
+		["@constant.builtin"] = { fg = colors.orange2 },                -- Built-in constant values
 		["@constant.macro"] = { fg = colors.pink1 },                    -- Constants defined by the preprocessor
 		["@module"] = { fg = colors.ice2 },                             -- Modules or namespace
 		["@module.builtin"] = { fg = colors.blue1 },                    -- Built-in modules or namespace
@@ -201,16 +200,16 @@ theme.load_treesitter = function()
 		["@function"] = { fg = colors.blue1 },                          -- Function definitions
 		["@function.builtin"] = { fg = colors.lilac1 },                 -- Built-in function definitions
 		["@function.call"] = { fg = colors.lilac1 },                    -- Function calls
-		["@function.macro"] = { fg = colors.pink1 },                    -- Preprocessor macros
-		["@function.method"] = { fg = colors.blue1 },                   -- Method definitions
-		["@function.method.call"] = { fg = colors.lilac1 },             -- Method calls
+		["@function.macro"] = { fg = colors.blue1 },                    -- Preprocessor macros
+		["@function.method"] = { fg = colors.lilac1 },                  -- Method definitions
+		["@function.method.call"] = { fg = colors.ice1 },               -- Method calls
 		["@constructor"] = { fg = colors.green1 },                      -- Constructor calls and definitions
 		["@operator"] = { fg = colors.fg },                             -- Symbolic operators
 		["@keyword"] = { fg = colors.purple1 },                         -- Keywords not fitting into specific categories
 		["@keyword.coroutine"] = { fg = colors.purple1 },               -- Keywords related to coroutines
 		["@keyword.function"] = { fg = colors.purple1 },                -- Keywords that define a function
 		["@keyword.operator"] = { fg = colors.lilac2 },                 -- operators that are English words
-		["@keyword.import"] = { fg = colors.pink2 },                    -- Keywords for including modules
+		["@keyword.import"] = { fg = colors.pink1 },                    -- Keywords for including modules
 		["@keyword.type"] = { fg = colors.ice1 },                       -- Keywords defining composite types
 		["@keyword.modifier"] = { fg = colors.purple1 },                -- Keywords defining type modifiers
 		["@keyword.repeat"] = { fg = colors.lilac1 },                   -- Keywords related to loops

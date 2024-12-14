@@ -12,11 +12,11 @@ local colors = {
 	green1 = "#74d2b7",
 	green2 = "#7ed7c0",
 
-	blue1 = "#87bff7",
-	blue2 = "#8fc8fa",
+	blue1 = "#82bdf7",
+	blue2 = "#85c3f9",
 
-	ice1 = "#9be9f8",
-	ice2 = "#aaecf8",
+	ice1 = "#97e7f7",
+	ice2 = "#a1eaf7",
 
 	purple1 = "#9486e4",
 	purple2 = "#9f95e9",
