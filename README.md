@@ -19,11 +19,11 @@
   </a>
 </p>
 
-![Alt test](https://github.com/Vallen217/eidolon.nvim/blob/main/screenshots/1.png?raw=true)
+![Alt test](https://github.com/Vallen217/eidolon.nvim/blob/main/screenshots/neovim_1.png?raw=true)
 
-![Alt test](https://github.com/Vallen217/eidolon.nvim/blob/main/screenshots/2.png?raw=true)
+![Alt test](https://github.com/Vallen217/eidolon.nvim/blob/main/screenshots/neovim_2.png?raw=true)
 
-![Alt test](https://github.com/Vallen217/eidolon.nvim/blob/main/screenshots/3.png?raw=true)
+![Alt test](https://github.com/Vallen217/eidolon.nvim/blob/main/screenshots/neovim_3.png?raw=true)
 
 ## Supported plugins
 
