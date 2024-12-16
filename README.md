@@ -47,7 +47,7 @@
 
 ## Installation
 
-Install the theme via your prefered package manager
+Install the theme via your preferred package manager
 
 [packer.nvim](https://github.com/wbthomason/packer.nvim)
 
@@ -74,9 +74,8 @@ use("Vallen217/eidolon.nvim")
 vim.cmd[[colorscheme eidolon]]
 ```
 
-<!--
-TODO:
-    Update screenshots,
+<!--TODO:
     Add doc file,
-    Update installation/usage
+    add support for [rednder-markdown.nvim](https://github.com/MeanderingProgrammer/render-markdown.nvim)
+    add support for [neo-tree.nvim](https://github.com/nvim-neo-tree/neo-tree.nvim)
 -->

@@ -6,7 +6,7 @@
 local util = {}
 local eidolon = require("eidolon.eidolon")
 
--- Go trough the table and highlight the group with the color values
+-- Go through the table and highlight the group with the color values
 util.highlight = function(group, color)
 	local style = color.style and "gui=" .. color.style or "gui=NONE"
 	local fg = color.fg and "guifg=" .. color.fg or "guifg=NONE"
