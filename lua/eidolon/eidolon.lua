@@ -67,7 +67,7 @@ theme.load_editor = function()
 		TabLineFill = { link = "Normal" }, -- Tab pages line, where there are no labels
 		TabLineSel = { bg = colors.bg3, fg = colors.fg }, -- Tab pages line, active tab page label
 		Title = { bg = colors.bg1, fg = colors.blue2 }, -- Titles for output from ":set all", ":autocmd" etc.
-		Visual = { link = "Normal" }, -- Visual mode selection
+		Visual = { bg = colors.grey1, fg=colors.blue2 }, -- Visual mode selection
 		VisualNOS = { link = "Normal" }, -- Visual mode selection when vim is "Not Owning the Selection".
 		WarningMsg = { bg = colors.bg1, fg = colors.ice1 }, -- Warning messages
 		Whitespace = { bg = colors.bg1, fg = colors.bg3 }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
